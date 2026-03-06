@@ -1,0 +1,26 @@
+name: Build Sandbox
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Build all Maven projects
+        run: |
+          for dir in $(find . -name "pom.xml"); do
+            cd $(dirname $dir)
+            mvn -q clean package
+            cd -
+          done
