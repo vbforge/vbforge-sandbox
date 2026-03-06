@@ -1,6 +1,6 @@
-# Generics Lab
+# generics-lab
 
-Experiments with Java generics.
+Experiments with Java Generics, type bounds, wildcards and practical examples.
 
 ## Topics
 

@@ -1,12 +1,12 @@
 name: Update README
 
-permissions:
-  contents: write
-
 on:
   push:
     branches:
       - main
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -14,15 +14,57 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Generate README
-        run: bash scripts/generate-readme.sh
+        run: |
+          echo "# VBForge Sandbox" > README.md
+          echo "" >> README.md
+          echo "Collection of small labs, demos and investigations." >> README.md
+          echo "" >> README.md
+
+          echo "## Project Statistics" >> README.md
+          echo "" >> README.md
+
+          # Count projects per domain
+          for domain in */ ; do
+            count=0
+            for project in "$domain"*/ ; do
+              if [ -d "$project" ]; then
+                count=$((count+1))
+              fi
+            done
+
+            domain_name=$(basename "$domain")
+            echo "$domain_name Labs: $count  " >> README.md
+          done
+
+          echo "" >> README.md
+          echo "## Projects" >> README.md
+          echo "" >> README.md
+
+          echo "| Domain | Project | Description |" >> README.md
+          echo "|------|------|------|" >> README.md
+
+          for domain in */ ; do
+            for project in "$domain"*/ ; do
+
+              if [ -f "$project/README.md" ]; then
+                name=$(basename "$project")
+                domain_name=$(basename "$domain")
+
+                desc=$(grep -m 1 -v '^#' "$project/README.md" | sed 's/^ *//')
+
+                echo "| $domain_name | [$name]($project) | $desc |" >> README.md
+              fi
+
+            done
+          done
 
       - name: Commit README
         run: |
           git config --global user.name "github-actions"
-          git config --global user.email "actions@github.com"
+          git config --global user.email "github-actions@github.com"
           git add README.md
           git commit -m "Auto update README" || echo "No changes"
           git push

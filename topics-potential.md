@@ -15,17 +15,15 @@
  - jvm
  - spring-boot
  - spring-security
- - spring-transactions
  - database
- - jpa-hibernate
+ - hibernate
+ - testing
  - docker
  - cloud
- - aws
- - kafka
- - testing
+ - kubernetes
+ - architecture
+ - patterns
  - performance
- - design-patterns
- - algorithms
 
 # POTENTIAL STRUCTURE
 
