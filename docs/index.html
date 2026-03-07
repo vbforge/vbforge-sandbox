@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>vbforge-sandbox — Learning Sandbox</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="logo-block">
+        <span class="logo-icon">⬡</span>
+        <div>
+          <h1>vbforge-sandbox</h1>
+          <p class="tagline">Java Learning Sandbox</p>
+        </div>
+      </div>
+      <nav class="header-links">
+        <a href="https://github.com/vbforge/vbforge-sandbox" target="_blank">GitHub ↗</a>
+        <a href="https://github.com/vbforge/vbforge-sandbox/actions" target="_blank">Actions ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Stats row -->
+    <section class="stats-row">
+      <div class="stat-pill">
+        <span class="stat-number" id="total-count">2</span>
+        <span class="stat-label">Total Projects</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-number">7</span>
+        <span class="stat-label">Categories</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-number">3</span>
+        <span class="stat-label">CI Workflows</span>
+      </div>
+      <div class="stat-pill updated-pill">
+        <span class="stat-label">Last updated</span>
+        <span class="stat-number small">2026-03-07 11:03 UTC</span>
+      </div>
+    </section>
+
+    <!-- Chart -->
+    <section class="chart-section">
+      <h2 class="section-title">Projects by Category</h2>
+      <div class="chart-wrap">
+        <canvas id="barChart"></canvas>
+      </div>
+    </section>
+
+    <!-- Cards -->
+    <section class="cards-section">
+      <h2 class="section-title">Repository Explorer</h2>
+      <div class="cards-grid">
+        <div class="card" data-category="java-core">
+  <div class="card-header">
+    <span class="card-title">java-core</span>
+    <span class="card-badge">2</span>
+  </div>
+  <ul class="project-list">
+    <li><a href="https://github.com/vbforge/vbforge-sandbox/tree/main/java-core/generics-lab" target="_blank">generics-lab</a></li><li><a href="https://github.com/vbforge/vbforge-sandbox/tree/main/java-core/hello-world" target="_blank">hello-world</a></li>
+  </ul>
+</div>
+<div class="card" data-category="spring-boot">
+  <div class="card-header">
+    <span class="card-title">spring-boot</span>
+    <span class="card-badge">0</span>
+  </div>
+  <ul class="project-list">
+    <li class="empty">No projects yet</li>
+  </ul>
+</div>
+<div class="card" data-category="concurrency">
+  <div class="card-header">
+    <span class="card-title">concurrency</span>
+    <span class="card-badge">0</span>
+  </div>
+  <ul class="project-list">
+    <li class="empty">No projects yet</li>
+  </ul>
+</div>
+<div class="card" data-category="cloud">
+  <div class="card-header">
+    <span class="card-title">cloud</span>
+    <span class="card-badge">0</span>
+  </div>
+  <ul class="project-list">
+    <li class="empty">No projects yet</li>
+  </ul>
+</div>
+<div class="card" data-category="docker">
+  <div class="card-header">
+    <span class="card-title">docker</span>
+    <span class="card-badge">0</span>
+  </div>
+  <ul class="project-list">
+    <li class="empty">No projects yet</li>
+  </ul>
+</div>
+<div class="card" data-category="database">
+  <div class="card-header">
+    <span class="card-title">database</span>
+    <span class="card-badge">0</span>
+  </div>
+  <ul class="project-list">
+    <li class="empty">No projects yet</li>
+  </ul>
+</div>
+<div class="card" data-category="kafka">
+  <div class="card-header">
+    <span class="card-title">kafka</span>
+    <span class="card-badge">0</span>
+  </div>
+  <ul class="project-list">
+    <li class="empty">No projects yet</li>
+  </ul>
+</div>
+      </div>
+    </section>
+
+    <!-- Pipeline diagram -->
+    <section class="pipeline-section">
+      <h2 class="section-title">Automation Pipeline</h2>
+      <div class="pipeline">
+        <div class="pipe-step">
+          <div class="pipe-icon">⬡</div>
+          <div class="pipe-label">git push</div>
+        </div>
+        <div class="pipe-arrow">→</div>
+        <div class="pipe-step">
+          <div class="pipe-icon">🔨</div>
+          <div class="pipe-label">build.yml<br/><small>Maven compile</small></div>
+        </div>
+        <div class="pipe-arrow">→</div>
+        <div class="pipe-step">
+          <div class="pipe-icon">📝</div>
+          <div class="pipe-label">update-readme.yml<br/><small>README.md</small></div>
+        </div>
+        <div class="pipe-arrow">→</div>
+        <div class="pipe-step">
+          <div class="pipe-icon">🌐</div>
+          <div class="pipe-label">generate-site.yml<br/><small>GitHub Pages</small></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Auto-generated · <a href="https://github.com/vbforge/vbforge-sandbox" target="_blank">vbforge/vbforge-sandbox</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Bar chart
+    const ctx = document.getElementById('barChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ["java-core","spring-boot","concurrency","cloud","docker","database","kafka"],
+        datasets: [{
+          label: 'Projects',
+          data: [2,0,0,0,0,0,0],
+          backgroundColor: [
+            '#e8ff47','#47ffe8','#ff6b47','#b847ff','#47b8ff','#ff47a0','#ffa047'
+          ],
+          borderWidth: 0,
+          borderRadius: 6,
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: ctx => ` ${ctx.parsed.y} project${ctx.parsed.y !== 1 ? 's' : ''}`
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid: { color: 'rgba(255,255,255,0.05)' },
+            ticks: { color: '#aaa', font: { family: 'JetBrains Mono', size: 12 } }
+          },
+          y: {
+            grid: { color: 'rgba(255,255,255,0.05)' },
+            ticks: {
+              color: '#aaa',
+              font: { family: 'JetBrains Mono', size: 12 },
+              stepSize: 1
+            },
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
