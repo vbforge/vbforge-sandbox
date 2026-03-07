@@ -26,7 +26,7 @@ public class HelloWorldTest {
 
     @Test
     public void testMainWithArguments() {
-        assertDoesNotThrow(() -> HelloWorld.main(new String[]{"arg1", "arg2", "arg3", "arg4"}));
+        assertDoesNotThrow(() -> HelloWorld.main(new String[]{"arg1", "arg2", "arg3", "arg4", "arg5"}));
     }
 
 }
