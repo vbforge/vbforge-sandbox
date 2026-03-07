@@ -1,8 +1,14 @@
 # VBForge Sandbox
 
-Collection of experiments, demos, and investigations.
+Collection of small labs, demos and investigations.
 
+## Project Statistics
 
-| Domain    | Project      | Link                                                                                |
-|-----------|--------------|-------------------------------------------------------------------------------------|
-| java-core | generics-lab | [Open](https://github.com/vbforge/vbforge-sandbox/tree/main/java-core/generics-lab) |
+java-core Labs: 1  
+scripts Labs: 0  
+
+## Projects
+
+| Domain | Project | Description |
+|------|------|------|
+| java-core | [generics-lab](java-core/generics-lab/) |  |
