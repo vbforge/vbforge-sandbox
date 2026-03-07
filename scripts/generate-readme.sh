@@ -69,13 +69,24 @@ build_category_sections() {
 cat > "$OUTPUT" << HEADER
 # $REPO_NAME
 
-> **Learning sandbox** — Java, Spring Boot, concurrency, cloud, and more.
-> Auto-generated on $UPDATED · $TOTAL_PROJECTS projects
+> **Learning sandbox** — $TOTAL_PROJECTS projects
 
+<!-- CI / Pages -->
 [![Build](https://github.com/$GITHUB_REPO/actions/workflows/build.yml/badge.svg)](https://github.com/$GITHUB_REPO/actions/workflows/build.yml)
 [![README](https://github.com/$GITHUB_REPO/actions/workflows/update-readme.yml/badge.svg)](https://github.com/$GITHUB_REPO/actions/workflows/update-readme.yml)
 [![Site](https://github.com/$GITHUB_REPO/actions/workflows/generate-site.yml/badge.svg)](https://github.com/$GITHUB_REPO/actions/workflows/generate-site.yml)
 [![Pages](https://img.shields.io/badge/GitHub%20Pages-live-brightgreen)](https://$GITHUB_USER.github.io/$REPO_NAME/)
+
+<!-- Language & platform -->
+![Java](https://img.shields.io/badge/Java-17-ED8B00?logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-6DB33F?logo=springboot&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-ready-2496ED?logo=docker&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-Database-4479A1?logo=mysql&logoColor=white)
+![AWS S3](https://img.shields.io/badge/AWS-S3-FF9900?logo=amazons3&logoColor=white)
+
+<!-- Testing -->
+![JUnit 5](https://img.shields.io/badge/JUnit-5-25A162?logo=junit5&logoColor=white)
+![Mockito](https://img.shields.io/badge/Mockito-5.x-C5D9C8)
 
 ---
 
