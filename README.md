@@ -1,11 +1,10 @@
 # vbforge-sandbox
 
-> **Learning sandbox:** — 2 projects in repository
+> **Learning sandbox** — 2 projects in repository
 
 <!-- CI / Pages -->
 [![Build](https://github.com/vbforge/vbforge-sandbox/actions/workflows/build.yml/badge.svg)](https://github.com/vbforge/vbforge-sandbox/actions/workflows/build.yml)
-[![README](https://github.com/vbforge/vbforge-sandbox/actions/workflows/update-readme.yml/badge.svg)](https://github.com/vbforge/vbforge-sandbox/actions/workflows/update-readme.yml)
-[![Site](https://github.com/vbforge/vbforge-sandbox/actions/workflows/generate-site.yml/badge.svg)](https://github.com/vbforge/vbforge-sandbox/actions/workflows/generate-site.yml)
+[![Docs](https://github.com/vbforge/vbforge-sandbox/actions/workflows/update-docs.yml/badge.svg)](https://github.com/vbforge/vbforge-sandbox/actions/workflows/update-docs.yml)
 [![Pages](https://img.shields.io/badge/GitHub%20Pages-live-brightgreen)](https://vbforge.github.io/vbforge-sandbox/)
 
 <!-- Language & platform -->
@@ -14,8 +13,6 @@
 ![Docker](https://img.shields.io/badge/Docker-ready-2496ED?logo=docker&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-Database-4479A1?logo=mysql&logoColor=white)
 ![AWS S3](https://img.shields.io/badge/AWS-S3-FF9900?logo=amazons3&logoColor=white)
-
-<!-- Testing -->
 ![JUnit 5](https://img.shields.io/badge/JUnit-5-25A162?logo=junit5&logoColor=white)
 ![Mockito](https://img.shields.io/badge/Mockito-5.x-C5D9C8)
 
@@ -38,8 +35,7 @@
 | Workflow | Trigger | Action |
 |----------|---------|--------|
 | `build.yml` | push / PR | Compiles all Maven projects |
-| `update-readme.yml` | push | Regenerates this README |
-| `generate-site.yml` | push | Rebuilds GitHub Pages site |
+| `update-docs.yml` | push | Regenerates README + GitHub Pages site |
 
 ---
 
@@ -49,4 +45,4 @@ Visit the live site: **[https://vbforge.github.io/vbforge-sandbox/](https://vbfo
 
 ---
 
-*Last updated: 2026-03-07 13:02 UTC — [source](.github/workflows/update-readme.yml)*
+*Last updated: 2026-03-07 14:25 UTC — [source](.github/workflows/update-docs.yml)*
