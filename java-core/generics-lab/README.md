@@ -4,7 +4,7 @@ Experiments with Java Generics, type bounds, wildcards and practical examples.
 ## Topics
 
 - bounded types (done)
-- wildcards
+- wildcards (todo)
 - generic interfaces (done)
 - type erasure (done)
 
