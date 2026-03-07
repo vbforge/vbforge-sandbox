@@ -22,6 +22,7 @@ jobs:
 
       - name: Build and test all Maven projects
         run: |
+          FAILED=0
           find . -name "pom.xml" \
             ! -path "*/.git/*" \
             ! -path "*/docs/*" \
@@ -31,7 +32,11 @@ jobs:
               echo "──────────────────────────────"
               echo "▶ Building: $dir"
               echo "──────────────────────────────"
-              (cd "$dir" && mvn clean verify -q --no-transfer-progress) \
-                && echo "✔ $dir — OK" \
-                || echo "✘ $dir — FAILED"
+              if (cd "$dir" && mvn clean verify -q --no-transfer-progress); then
+                echo "✔✔✔ $dir — OK"
+              else
+                echo "✘✘✘ $dir — FAILED"
+                FAILED=1
+              fi
             done
+          exit $FAILED
