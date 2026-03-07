@@ -1,6 +1,7 @@
-# VBForge Sandbox
+# vbforge sandbox
 
 Collection of small labs, demos and investigations.
+
 ![Java](https://img.shields.io/badge/Java-17-orange)
 ![Spring](https://img.shields.io/badge/Spring-Boot-green)
 ![Docker](https://img.shields.io/badge/Docker-ready-blue)
