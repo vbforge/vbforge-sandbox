@@ -34,4 +34,10 @@ public class HelloWorldTest {
         assertEquals(a.length(), 3);
     }
 
+    @Test
+    public void testCorrect2() {
+        String a = "aaabbbc";
+        assertEquals(a.length(), 7);
+    }
+
 }
