@@ -22,7 +22,9 @@ jobs:
 
       - name: Build and test all Maven projects
         run: |
-          FAILED=0
+          FAIL_FLAG=$(mktemp)
+          echo "0" > "$FAIL_FLAG"
+
           find . -name "pom.xml" \
             ! -path "*/.git/*" \
             ! -path "*/docs/*" \
@@ -33,10 +35,20 @@ jobs:
               echo "▶ Building: $dir"
               echo "──────────────────────────────"
               if (cd "$dir" && mvn clean verify -q --no-transfer-progress); then
-                echo "✔✔✔ $dir — OK"
+                echo "✔ $dir — OK"
               else
-                echo "✘✘✘ $dir — FAILED"
-                FAILED=1
+                echo "✘ $dir — FAILED"
+                echo "1" > "$FAIL_FLAG"
               fi
             done
-          exit $FAILED
+
+          if [ "$(cat $FAIL_FLAG)" = "1" ]; then
+            echo "──────────────────────────────"
+            echo "✘ One or more projects failed!"
+            echo "──────────────────────────────"
+            exit 1
+          else
+            echo "──────────────────────────────"
+            echo "✔ All projects passed!"
+            echo "──────────────────────────────"
+          fi
