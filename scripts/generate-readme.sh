@@ -50,7 +50,6 @@ build_category_sections() {
 
     for proj in "${projects[@]}"; do
       local desc=""
-      # Try to read description from README or pom.xml inside the project
       local proj_readme="$dir/$proj/README.md"
       local proj_pom="$dir/$proj/pom.xml"
       if [[ -f "$proj_readme" ]]; then
@@ -69,12 +68,11 @@ build_category_sections() {
 cat > "$OUTPUT" << HEADER
 # $REPO_NAME
 
-> **Learning sandbox:** — $TOTAL_PROJECTS projects in repository
+> **Learning sandbox** — $TOTAL_PROJECTS projects in repository
 
 <!-- CI / Pages -->
 [![Build](https://github.com/$GITHUB_REPO/actions/workflows/build.yml/badge.svg)](https://github.com/$GITHUB_REPO/actions/workflows/build.yml)
-[![README](https://github.com/$GITHUB_REPO/actions/workflows/update-readme.yml/badge.svg)](https://github.com/$GITHUB_REPO/actions/workflows/update-readme.yml)
-[![Site](https://github.com/$GITHUB_REPO/actions/workflows/generate-site.yml/badge.svg)](https://github.com/$GITHUB_REPO/actions/workflows/generate-site.yml)
+[![Docs](https://github.com/$GITHUB_REPO/actions/workflows/update-docs.yml/badge.svg)](https://github.com/$GITHUB_REPO/actions/workflows/update-docs.yml)
 [![Pages](https://img.shields.io/badge/GitHub%20Pages-live-brightgreen)](https://$GITHUB_USER.github.io/$REPO_NAME/)
 
 <!-- Language & platform -->
@@ -103,8 +101,7 @@ cat >> "$OUTPUT" << FOOTER
 | Workflow | Trigger | Action |
 |----------|---------|--------|
 | \`build.yml\` | push / PR | Compiles all Maven projects |
-| \`update-readme.yml\` | push | Regenerates this README |
-| \`generate-site.yml\` | push | Rebuilds GitHub Pages site |
+| \`update-docs.yml\` | push | Regenerates README + GitHub Pages site |
 
 ---
 
@@ -114,7 +111,7 @@ Visit the live site: **[https://$GITHUB_USER.github.io/$REPO_NAME/](https://$GIT
 
 ---
 
-*Last updated: $UPDATED — [source](.github/workflows/update-readme.yml)*
+*Last updated: $UPDATED — [source](.github/workflows/update-docs.yml)*
 FOOTER
 
 echo "✔ README.md generated ($TOTAL_PROJECTS projects)"

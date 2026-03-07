@@ -1,4 +1,4 @@
-name: Generate GitHub Pages Site
+name: Update Docs
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  generate-site:
+  update-docs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -17,19 +17,24 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Generate README
+        run: |
+          chmod +x scripts/generate-readme.sh
+          bash scripts/generate-readme.sh
+
       - name: Generate site
         run: |
           chmod +x scripts/generate-site.sh
           bash scripts/generate-site.sh
 
-      - name: Commit updated docs
+      - name: Commit all changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/
+          git add README.md docs/
           if git diff --staged --quiet; then
-            echo "No changes to commit — site is already up to date."
+            echo "Nothing changed — skipping commit."
           else
-            git commit -m "docs: auto-update GitHub Pages [skip ci]"
+            git commit -m "docs: auto-update README + site [skip ci]"
             git push
           fi

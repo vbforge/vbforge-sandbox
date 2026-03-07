@@ -78,7 +78,7 @@ CARD
 
 CARDS_HTML=$(build_cards)
 
-# ── Check if logo.svg exists in docs ───────────────────────────────────────────
+# ── Logo ───────────────────────────────────────────────────────────────────────
 if [[ -f "$DOCS/logo.svg" ]]; then
   LOGO_HTML='<img src="logo.svg" alt="logo" class="logo-img" />'
 else
@@ -129,7 +129,7 @@ cat > "$OUTPUT" << HTML
         <span class="stat-label">Categories</span>
       </div>
       <div class="stat-pill">
-        <span class="stat-number">3</span>
+        <span class="stat-number">2</span>
         <span class="stat-label">CI Workflows</span>
       </div>
       <div class="stat-pill updated-pill">
@@ -166,13 +166,8 @@ cat > "$OUTPUT" << HTML
         </div>
         <div class="pipe-arrow">→</div>
         <div class="pipe-step">
-          <div class="pipe-icon">📝</div>
-          <div class="pipe-label">update-readme.yml<br/><small>README.md</small></div>
-        </div>
-        <div class="pipe-arrow">→</div>
-        <div class="pipe-step">
-          <div class="pipe-icon">🌐</div>
-          <div class="pipe-label">generate-site.yml<br/><small>GitHub Pages</small></div>
+          <div class="pipe-icon">📝🌐</div>
+          <div class="pipe-label">update-docs.yml<br/><small>README + Pages</small></div>
         </div>
       </div>
     </section>
