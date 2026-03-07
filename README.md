@@ -3,10 +3,11 @@
 Collection of small labs, demos and investigations.
 
 ![Java](https://img.shields.io/badge/Java-17-orange)
-![Spring](https://img.shields.io/badge/Spring-Boot-green)
-![Docker](https://img.shields.io/badge/Docker-ready-blue)
+![Spring](https://img.shields.io/badge/Spring-Boot3.x-green)
+![Docker](https://img.shields.io/badge/Docker-container-blue)
 ![JUnit 5](https://img.shields.io/badge/JUnit-5-red)
-![DataBase](https://img.shields.io/badge/MySql-8-blue)
+![DataBase](https://img.shields.io/badge/MySql-DB-blue)
+![Mockito](https://img.shields.io/badge/Mockito-test-green)
 
 ## Project Statistics
 
