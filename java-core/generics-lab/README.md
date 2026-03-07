@@ -1,5 +1,4 @@
 # generics-lab
-
 Experiments with Java Generics, type bounds, wildcards and practical examples.
 
 ## Topics

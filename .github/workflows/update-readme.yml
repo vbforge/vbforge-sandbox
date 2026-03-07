@@ -21,6 +21,10 @@ jobs:
           echo "# VBForge Sandbox" > README.md
           echo "" >> README.md
           echo "Collection of small labs, demos and investigations." >> README.md
+          echo "---" >> README.md
+          echo "![Java](https://img.shields.io/badge/Java-17-orange)" >> README.md
+          echo "![Spring](https://img.shields.io/badge/Spring-Boot-green)" >> README.md
+          echo "![Docker](https://img.shields.io/badge/Docker-ready-blue)" >> README.md
           echo "" >> README.md
 
           echo "## Project Statistics" >> README.md
@@ -36,7 +40,7 @@ jobs:
             done
 
             domain_name=$(basename "$domain")
-            echo "$domain_name Labs: $count  " >> README.md
+            echo "$domain_name: $count  " >> README.md
           done
 
           echo "" >> README.md
