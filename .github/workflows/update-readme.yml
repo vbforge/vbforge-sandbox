@@ -23,10 +23,11 @@ jobs:
           echo "Collection of small labs, demos and investigations." >> README.md
           echo "" >> README.md
           echo "![Java](https://img.shields.io/badge/Java-17-orange)" >> README.md
-          echo "![Spring](https://img.shields.io/badge/Spring-Boot-green)" >> README.md
-          echo "![Docker](https://img.shields.io/badge/Docker-ready-blue)" >> README.md
+          echo "![Spring](https://img.shields.io/badge/Spring-Boot3.x-green)" >> README.md
+          echo "![Docker](https://img.shields.io/badge/Docker-container-blue)" >> README.md
           echo "![JUnit 5](https://img.shields.io/badge/JUnit-5-red)" >> README.md
-          echo "![DataBase](https://img.shields.io/badge/MySql-8-blue)" >> README.md
+          echo "![DataBase](https://img.shields.io/badge/MySql-DB-blue)" >> README.md
+          echo "![Mockito](https://img.shields.io/badge/Mockito-test-green)" >> README.md
           echo "" >> README.md
 
           echo "## Project Statistics" >> README.md

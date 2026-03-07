@@ -2,12 +2,16 @@
 Experiments with Java Generics, type bounds, wildcards and practical examples.
 
 ## Topics
-
 - bounded types (done)
 - wildcards (todo)
 - generic interfaces (done)
 - type erasure (done)
 
-## Run
+## Stack
+- Java 17
+- JUnit 5
 
+## Run
+```
 mvn clean package
+```
