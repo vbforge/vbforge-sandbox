@@ -78,6 +78,13 @@ CARD
 
 CARDS_HTML=$(build_cards)
 
+# ── Check if logo.svg exists in docs ───────────────────────────────────────────
+if [[ -f "$DOCS/logo.svg" ]]; then
+  LOGO_HTML='<img src="logo.svg" alt="logo" class="logo-img" />'
+else
+  LOGO_HTML='<span class="logo-icon">⬡</span>'
+fi
+
 # ── Write index.html ────────────────────────────────────────────────────────────
 cat > "$OUTPUT" << HTML
 <!DOCTYPE html>
@@ -88,7 +95,7 @@ cat > "$OUTPUT" << HTML
   <title>$REPO_NAME — Learning Sandbox</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;700;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -97,10 +104,10 @@ cat > "$OUTPUT" << HTML
   <header>
     <div class="header-inner">
       <div class="logo-block">
-        <img src="docs/logo.svg" alt="Logo" class="logo-icon" />
+        $LOGO_HTML
         <div>
           <h1>$REPO_NAME</h1>
-          <h4 class="tagline">Java Learning Sandbox</h4>
+          <p class="tagline">Java Learning Sandbox</p>
         </div>
       </div>
       <nav class="header-links">
@@ -112,7 +119,6 @@ cat > "$OUTPUT" << HTML
 
   <main>
 
-    <!-- Stats row -->
     <section class="stats-row">
       <div class="stat-pill">
         <span class="stat-number" id="total-count">$TOTAL</span>
@@ -132,7 +138,6 @@ cat > "$OUTPUT" << HTML
       </div>
     </section>
 
-    <!-- Chart -->
     <section class="chart-section">
       <h2 class="section-title">Projects by Category</h2>
       <div class="chart-wrap">
@@ -140,7 +145,6 @@ cat > "$OUTPUT" << HTML
       </div>
     </section>
 
-    <!-- Cards -->
     <section class="cards-section">
       <h2 class="section-title">Repository Explorer</h2>
       <div class="cards-grid">
@@ -148,7 +152,6 @@ cat > "$OUTPUT" << HTML
       </div>
     </section>
 
-    <!-- Pipeline diagram -->
     <section class="pipeline-section">
       <h2 class="section-title">Automation Pipeline</h2>
       <div class="pipeline">
@@ -182,7 +185,6 @@ cat > "$OUTPUT" << HTML
 
   <script src="script.js"></script>
   <script>
-    // Bar chart
     const ctx = document.getElementById('barChart').getContext('2d');
     new Chart(ctx, {
       type: 'bar',
@@ -191,9 +193,7 @@ cat > "$OUTPUT" << HTML
         datasets: [{
           label: 'Projects',
           data: $CHART_DATA,
-          backgroundColor: [
-            '#e8ff47','#47ffe8','#ff6b47','#b847ff','#47b8ff','#ff47a0','#ffa047'
-          ],
+          backgroundColor: ['#e8ff47','#47ffe8','#ff6b47','#b847ff','#47b8ff','#ff47a0','#ffa047'],
           borderWidth: 0,
           borderRadius: 6,
         }]
@@ -203,26 +203,11 @@ cat > "$OUTPUT" << HTML
         maintainAspectRatio: false,
         plugins: {
           legend: { display: false },
-          tooltip: {
-            callbacks: {
-              label: ctx => \` \${ctx.parsed.y} project\${ctx.parsed.y !== 1 ? 's' : ''}\`
-            }
-          }
+          tooltip: { callbacks: { label: ctx => \` \${ctx.parsed.y} project\${ctx.parsed.y !== 1 ? 's' : ''}\` } }
         },
         scales: {
-          x: {
-            grid: { color: 'rgba(255,255,255,0.05)' },
-            ticks: { color: '#aaa', font: { family: 'JetBrains Mono', size: 12 } }
-          },
-          y: {
-            grid: { color: 'rgba(255,255,255,0.05)' },
-            ticks: {
-              color: '#aaa',
-              font: { family: 'JetBrains Mono', size: 12 },
-              stepSize: 1
-            },
-            beginAtZero: true
-          }
+          x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#aaa', font: { family: 'JetBrains Mono', size: 12 } } },
+          y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#aaa', font: { family: 'JetBrains Mono', size: 12 }, stepSize: 1 }, beginAtZero: true }
         }
       }
     });
