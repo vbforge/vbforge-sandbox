@@ -6,7 +6,7 @@
   <title>vbforge-sandbox — Learning Sandbox</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;700;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -15,10 +15,10 @@
   <header>
     <div class="header-inner">
       <div class="logo-block">
-        <span class="logo-icon">⬡</span>
+        <img src="logo.svg" alt="logo" class="logo-img" />
         <div>
           <h1>vbforge-sandbox</h1>
-          <h4 class="tagline">Java Learning Sandbox</h4>
+          <p class="tagline">Java Learning Sandbox</p>
         </div>
       </div>
       <nav class="header-links">
@@ -30,7 +30,6 @@
 
   <main>
 
-    <!-- Stats row -->
     <section class="stats-row">
       <div class="stat-pill">
         <span class="stat-number" id="total-count">2</span>
@@ -46,11 +45,10 @@
       </div>
       <div class="stat-pill updated-pill">
         <span class="stat-label">Last updated</span>
-        <span class="stat-number small">2026-03-07 11:03 UTC</span>
+        <span class="stat-number small">2026-03-07 12:10 UTC</span>
       </div>
     </section>
 
-    <!-- Chart -->
     <section class="chart-section">
       <h2 class="section-title">Projects by Category</h2>
       <div class="chart-wrap">
@@ -58,7 +56,6 @@
       </div>
     </section>
 
-    <!-- Cards -->
     <section class="cards-section">
       <h2 class="section-title">Repository Explorer</h2>
       <div class="cards-grid">
@@ -128,7 +125,6 @@
       </div>
     </section>
 
-    <!-- Pipeline diagram -->
     <section class="pipeline-section">
       <h2 class="section-title">Automation Pipeline</h2>
       <div class="pipeline">
@@ -162,7 +158,6 @@
 
   <script src="script.js"></script>
   <script>
-    // Bar chart
     const ctx = document.getElementById('barChart').getContext('2d');
     new Chart(ctx, {
       type: 'bar',
@@ -171,9 +166,7 @@
         datasets: [{
           label: 'Projects',
           data: [2,0,0,0,0,0,0],
-          backgroundColor: [
-            '#e8ff47','#47ffe8','#ff6b47','#b847ff','#47b8ff','#ff47a0','#ffa047'
-          ],
+          backgroundColor: ['#e8ff47','#47ffe8','#ff6b47','#b847ff','#47b8ff','#ff47a0','#ffa047'],
           borderWidth: 0,
           borderRadius: 6,
         }]
@@ -183,26 +176,11 @@
         maintainAspectRatio: false,
         plugins: {
           legend: { display: false },
-          tooltip: {
-            callbacks: {
-              label: ctx => ` ${ctx.parsed.y} project${ctx.parsed.y !== 1 ? 's' : ''}`
-            }
-          }
+          tooltip: { callbacks: { label: ctx => ` ${ctx.parsed.y} project${ctx.parsed.y !== 1 ? 's' : ''}` } }
         },
         scales: {
-          x: {
-            grid: { color: 'rgba(255,255,255,0.05)' },
-            ticks: { color: '#aaa', font: { family: 'JetBrains Mono', size: 12 } }
-          },
-          y: {
-            grid: { color: 'rgba(255,255,255,0.05)' },
-            ticks: {
-              color: '#aaa',
-              font: { family: 'JetBrains Mono', size: 12 },
-              stepSize: 1
-            },
-            beginAtZero: true
-          }
+          x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#aaa', font: { family: 'JetBrains Mono', size: 12 } } },
+          y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#aaa', font: { family: 'JetBrains Mono', size: 12 }, stepSize: 1 }, beginAtZero: true }
         }
       }
     });
