@@ -1,7 +1,5 @@
 # vbforge-sandbox
 
-> **Learning sandbox** — 2 projects in repository
-
 <!-- CI / Pages -->
 [![Build](https://github.com/vbforge/vbforge-sandbox/actions/workflows/build.yml/badge.svg)](https://github.com/vbforge/vbforge-sandbox/actions/workflows/build.yml)
 [![Docs](https://github.com/vbforge/vbforge-sandbox/actions/workflows/update-docs.yml/badge.svg)](https://github.com/vbforge/vbforge-sandbox/actions/workflows/update-docs.yml)
@@ -18,7 +16,7 @@
 
 ---
 
-## 📚 Projects
+## 📚 Projects (TOTAL: 2)
 
 
 ### 📁 `java-core`
@@ -45,4 +43,4 @@ Visit the live site: **[https://vbforge.github.io/vbforge-sandbox/](https://vbfo
 
 ---
 
-*Last updated: 2026-03-07 15:33 UTC — [source](.github/workflows/update-docs.yml)*
+*Last updated: 2026-03-07 15:46 UTC — [source](.github/workflows/update-docs.yml)*
