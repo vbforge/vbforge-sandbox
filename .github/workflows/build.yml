@@ -20,7 +20,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Build all Maven projects
+      - name: Build and test all Maven projects
         run: |
           find . -name "pom.xml" \
             ! -path "*/.git/*" \
@@ -31,7 +31,7 @@ jobs:
               echo "──────────────────────────────"
               echo "▶ Building: $dir"
               echo "──────────────────────────────"
-              (cd "$dir" && mvn clean compile -q --no-transfer-progress) \
+              (cd "$dir" && mvn clean verify -q --no-transfer-progress) \
                 && echo "✔ $dir — OK" \
                 || echo "✘ $dir — FAILED"
             done
