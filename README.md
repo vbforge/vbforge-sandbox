@@ -16,7 +16,7 @@
 
 ---
 
-## 📚 Projects (TOTAL: 2)
+## 📚 Projects (TOTAL: 3)
 
 
 ### 📁 `java-core`
@@ -25,6 +25,12 @@
 |---------|-------------|
 | [`generics-lab`](./java-core/generics-lab) | Experiments with Java Generics, type bounds, wildcards and practical examples. |
 | [`hello-world`](./java-core/hello-world) | Starting project!)) |
+
+### 📁 `concurrency`
+
+| Project | Description |
+|---------|-------------|
+| [`threads-simple`](./concurrency/threads-simple) | Experiments with threads, and other related topics around threads. |
 
 ---
 
@@ -43,4 +49,4 @@ Visit the live site: **[https://vbforge.github.io/vbforge-sandbox/](https://vbfo
 
 ---
 
-*Last updated: 2026-03-07 16:38 UTC — [source](.github/workflows/update-docs.yml)*
+*Last updated: 2026-03-07 16:58 UTC — [source](.github/workflows/update-docs.yml)*
