@@ -1,4 +1,4 @@
-name: Update README
+name: Generate GitHub Pages Site
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  update-readme:
+  generate-site:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -17,15 +17,15 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Generate README
+      - name: Generate site
         run: |
-          chmod +x scripts/generate-readme.sh
-          bash scripts/generate-readme.sh
+          chmod +x scripts/generate-site.sh
+          bash scripts/generate-site.sh
 
-      - name: Commit updated README
+      - name: Commit updated docs
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add README.md
-          git diff --staged --quiet || git commit -m "docs: auto-update README [skip ci]"
+          git add docs/
+          git diff --staged --quiet || git commit -m "docs: auto-update GitHub Pages [skip ci]"
           git push
