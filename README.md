@@ -1,22 +1,41 @@
-# vbforge sandbox
+# vbforge-sandbox
 
-Collection of small labs, demos and investigations.
+> **Learning sandbox** — Java, Spring Boot, concurrency, cloud, and more.
+> Auto-generated on 2026-03-07 11:33 UTC · 2 projects
 
-![Java](https://img.shields.io/badge/Java-17-orange)
-![Spring](https://img.shields.io/badge/Spring-Boot3.x-green)
-![Docker](https://img.shields.io/badge/Docker-container-blue)
-![JUnit 5](https://img.shields.io/badge/JUnit-5-red)
-![DataBase](https://img.shields.io/badge/MySql-DB-blue)
-![Mockito](https://img.shields.io/badge/Mockito-test-green)
+[![Build](https://github.com/vbforge/vbforge-sandbox/actions/workflows/build.yml/badge.svg)](https://github.com/vbforge/vbforge-sandbox/actions/workflows/build.yml)
+[![README](https://github.com/vbforge/vbforge-sandbox/actions/workflows/update-readme.yml/badge.svg)](https://github.com/vbforge/vbforge-sandbox/actions/workflows/update-readme.yml)
+[![Site](https://github.com/vbforge/vbforge-sandbox/actions/workflows/generate-site.yml/badge.svg)](https://github.com/vbforge/vbforge-sandbox/actions/workflows/generate-site.yml)
+[![Pages](https://img.shields.io/badge/GitHub%20Pages-live-brightgreen)](https://vbforge.github.io/vbforge-sandbox/)
 
-## Project Statistics
+---
 
-java-core: 1  
+## 📚 Projects
 
-**Total projects: 1**
 
-## Projects
+### 📁 `java-core`
 
-| Domain | Project | Description |
-|------|------|------|
-| java-core | [generics-lab](java-core/generics-lab/) | Experiments with Java Generics, type bounds, wildcards and practical examples. |
+| Project | Description |
+|---------|-------------|
+| [`generics-lab`](./java-core/generics-lab) | Experiments with Java Generics, type bounds, wildcards and practical examples. |
+| [`hello-world`](./java-core/hello-world) | Starting project!)) |
+
+---
+
+## 🔄 Automation
+
+| Workflow | Trigger | Action |
+|----------|---------|--------|
+| `build.yml` | push / PR | Compiles all Maven projects |
+| `update-readme.yml` | push | Regenerates this README |
+| `generate-site.yml` | push | Rebuilds GitHub Pages site |
+
+---
+
+## 🌐 GitHub Pages
+
+Visit the live site: **[https://vbforge.github.io/vbforge-sandbox/](https://vbforge.github.io/vbforge-sandbox/)**
+
+---
+
+*Last updated: 2026-03-07 11:33 UTC — [source](.github/workflows/update-readme.yml)*
