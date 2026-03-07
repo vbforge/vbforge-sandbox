@@ -21,7 +21,6 @@ jobs:
           echo "# VBForge Sandbox" > README.md
           echo "" >> README.md
           echo "Collection of small labs, demos and investigations." >> README.md
-          echo "---" >> README.md
           echo "![Java](https://img.shields.io/badge/Java-17-orange)" >> README.md
           echo "![Spring](https://img.shields.io/badge/Spring-Boot-green)" >> README.md
           echo "![Docker](https://img.shields.io/badge/Docker-ready-blue)" >> README.md
@@ -30,20 +29,33 @@ jobs:
           echo "## Project Statistics" >> README.md
           echo "" >> README.md
 
-          # Count projects per domain
+          total_projects=0
+
           for domain in */ ; do
+
+            domain_name=$(basename "$domain")
+
+            if [[ "$domain_name" == "scripts" || "$domain_name" == ".github" ]]; then
+              continue
+            fi
+
             count=0
+
             for project in "$domain"*/ ; do
               if [ -d "$project" ]; then
                 count=$((count+1))
               fi
             done
 
-            domain_name=$(basename "$domain")
+            total_projects=$((total_projects + count))
+
             echo "$domain_name: $count  " >> README.md
           done
 
           echo "" >> README.md
+          echo "**Total projects: $total_projects**" >> README.md
+          echo "" >> README.md
+
           echo "## Projects" >> README.md
           echo "" >> README.md
 
@@ -51,15 +63,23 @@ jobs:
           echo "|------|------|------|" >> README.md
 
           for domain in */ ; do
+
+            domain_name=$(basename "$domain")
+
+            if [[ "$domain_name" == "scripts" || "$domain_name" == ".github" ]]; then
+              continue
+            fi
+
             for project in "$domain"*/ ; do
 
               if [ -f "$project/README.md" ]; then
+
                 name=$(basename "$project")
-                domain_name=$(basename "$domain")
 
                 desc=$(grep -m 1 -v '^#' "$project/README.md" | sed 's/^ *//')
 
                 echo "| $domain_name | [$name]($project) | $desc |" >> README.md
+
               fi
 
             done
