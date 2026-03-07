@@ -16,7 +16,7 @@
 
 ---
 
-## 📚 Projects (TOTAL: 3)
+## 📚 Projects (TOTAL: 4)
 
 
 ### 📁 `java-core`
@@ -30,6 +30,7 @@
 
 | Project | Description |
 |---------|-------------|
+| [`concurrency-collections-exploration`](./concurrency/concurrency-collections-exploration) | Focus on: ConcurrentHashMap, CopyOnWriteArrayList, Queue-Based-Concurrent-Collec |
 | [`threads-simple`](./concurrency/threads-simple) | Experiments with threads, and other related topics around threads. |
 
 ---
@@ -49,4 +50,4 @@ Visit the live site: **[https://vbforge.github.io/vbforge-sandbox/](https://vbfo
 
 ---
 
-*Last updated: 2026-03-07 16:58 UTC — [source](.github/workflows/update-docs.yml)*
+*Last updated: 2026-03-07 17:31 UTC — [source](.github/workflows/update-docs.yml)*
