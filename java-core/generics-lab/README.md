@@ -3,10 +3,10 @@ Experiments with Java Generics, type bounds, wildcards and practical examples.
 
 ## Topics
 
-- bounded types
+- bounded types (done)
 - wildcards
-- generic interfaces
-- type erasure
+- generic interfaces (done)
+- type erasure (done)
 
 ## Run
 
