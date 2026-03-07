@@ -54,10 +54,9 @@ header {
 }
 
 .logo-icon {
-  font-size: 2rem;
-  color: var(--accent);
-  line-height: 1;
-  animation: pulse 3s ease-in-out infinite;
+  width: 40px;  /* adjust as needed */
+  height: 40px; /* adjust as needed */
+  margin-right: 10px;
 }
 
 @keyframes pulse {

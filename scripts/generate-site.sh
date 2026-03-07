@@ -97,10 +97,10 @@ cat > "$OUTPUT" << HTML
   <header>
     <div class="header-inner">
       <div class="logo-block">
-        <span class="logo-icon">⬡</span>
+        <img src="docs/logo.svg" alt="Logo" class="logo-icon" />
         <div>
           <h1>$REPO_NAME</h1>
-          <p class="tagline">Java Learning Sandbox</p>
+          <h4 class="tagline">Java Learning Sandbox</h4>
         </div>
       </div>
       <nav class="header-links">
