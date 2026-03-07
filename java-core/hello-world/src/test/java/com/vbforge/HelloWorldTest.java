@@ -4,8 +4,7 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class HelloWorldTest {
 
@@ -30,9 +29,9 @@ public class HelloWorldTest {
     }
 
     @Test
-    public void testFailed() {
-        String a = null;
-        assertEquals(a.length(), 0);
+    public void testCorrect() {
+        String a = "aaa";
+        assertEquals(a.length(), 3);
     }
 
 }

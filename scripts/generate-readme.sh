@@ -68,8 +68,6 @@ build_category_sections() {
 cat > "$OUTPUT" << HEADER
 # $REPO_NAME
 
-> **Learning sandbox** — $TOTAL_PROJECTS projects in repository
-
 <!-- CI / Pages -->
 [![Build](https://github.com/$GITHUB_REPO/actions/workflows/build.yml/badge.svg)](https://github.com/$GITHUB_REPO/actions/workflows/build.yml)
 [![Docs](https://github.com/$GITHUB_REPO/actions/workflows/update-docs.yml/badge.svg)](https://github.com/$GITHUB_REPO/actions/workflows/update-docs.yml)
@@ -86,7 +84,7 @@ cat > "$OUTPUT" << HEADER
 
 ---
 
-## 📚 Projects
+## 📚 Projects (TOTAL: $TOTAL_PROJECTS)
 
 HEADER
 
