@@ -106,8 +106,10 @@ CARDS_HTML=$(build_cards)
 # ── Logo ───────────────────────────────────────────────────────────────────────
 if [[ -f "$DOCS/logo.svg" ]]; then
   LOGO_HTML='<img src="logo.svg" alt="logo" class="logo-img" />'
+  PIPE_LOGO='<img src="logo.svg" alt="logo" class="pipe-logo" />'
 else
   LOGO_HTML='<span class="logo-icon">⬡</span>'
+  PIPE_LOGO='<span class="logo-icon">⬡</span>'
 fi
 
 # ── Write index.html ────────────────────────────────────────────────────────────
@@ -181,7 +183,7 @@ cat > "$OUTPUT" << HTML
       <h2 class="section-title">Automation Pipeline</h2>
       <div class="pipeline">
         <div class="pipe-step">
-          <div class="pipe-icon">$LOGO_HTML</div>
+          <div class="pipe-icon">$PIPE_LOGO</div>
           <div class="pipe-label">git push</div>
         </div>
         <div class="pipe-arrow">→</div>

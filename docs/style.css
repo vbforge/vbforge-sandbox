@@ -304,6 +304,13 @@ main {
 
 .pipe-icon { font-size: 2rem; line-height: 1; }
 
+.pipe-logo {
+  height: 32px;
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 0 6px rgba(232,255,71,0.35));
+}
+
 .pipe-label {
   font-family: var(--font-mono);
   font-size: 0.78rem;
