@@ -1,0 +1,34 @@
+spring:
+  application:
+   name: validation-and-sign
+
+server:
+  port: 9192
+
+# -------------------------------------------------------
+# JWT experiment configurations
+# Each maps to a different JwtUtil variant:
+#
+#   jwt.util1  →  JwtUtil1  (HS512, long secret via @PostConstruct, modern API)
+#   jwt.util2  →  JwtUtil2  (HS256, weak short secret — intentional bad example)
+#   jwt.util3  →  JwtUtil3  (HS256, long secret via @PostConstruct, modern API)
+# -------------------------------------------------------
+jwt:
+  util1:
+    secret-seed: "a"        # repeated 256 times in @PostConstruct
+    expiration-ms: 60000    # 60 seconds
+    algorithm: HS512
+
+  util2:
+    secret: "TEST"          # intentionally weak — shows why short secrets are dangerous
+    expiration-ms: 60000
+    algorithm: HS256
+
+  util3:
+    secret-seed: "b"        # repeated 256 times in @PostConstruct
+    expiration-ms: 60000
+    algorithm: HS256
+
+logging:
+  level:
+    com.vbforge: DEBUG
