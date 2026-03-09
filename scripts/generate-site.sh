@@ -181,7 +181,7 @@ cat > "$OUTPUT" << HTML
       <h2 class="section-title">Automation Pipeline</h2>
       <div class="pipeline">
         <div class="pipe-step">
-          <div class="pipe-icon">⬡</div>
+          <div class="pipe-icon">$LOGO_HTML</div>
           <div class="pipe-label">git push</div>
         </div>
         <div class="pipe-arrow">→</div>
