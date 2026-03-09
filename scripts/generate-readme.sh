@@ -11,8 +11,31 @@ GITHUB_USER="${GITHUB_REPOSITORY_OWNER:-vbforge}"
 GITHUB_REPO="${GITHUB_REPOSITORY:-$GITHUB_USER/$REPO_NAME}"
 UPDATED=$(date -u '+%Y-%m-%d %H:%M UTC')
 
-# ── Top-level project folders to scan ──────────────────────────────────────────
-CATEGORIES=(java-core spring-boot concurrency cloud docker database kafka)
+# ── Folders to always skip ─────────────────────────────────────────────────────
+SKIP_DIRS=(".github" ".idea" ".git" "docs" "scripts" "collections" "target" "node_modules")
+
+is_skipped() {
+  local name="$1"
+  for skip in "${SKIP_DIRS[@]}"; do
+    [[ "$name" == "$skip" ]] && return 0
+  done
+  return 1
+}
+
+# ── Auto-discover category folders ─────────────────────────────────────────────
+discover_categories() {
+  local cats=()
+  while IFS= read -r -d '' dir; do
+    local name
+    name=$(basename "$dir")
+    is_skipped "$name" && continue
+    # Only include if it contains at least one subdirectory (a project)
+    cats+=("$name")
+  done < <(find "$REPO_ROOT" -mindepth 1 -maxdepth 1 -type d -print0 | sort -z)
+  echo "${cats[@]}"
+}
+
+read -ra CATEGORIES <<< "$(discover_categories)"
 
 # ── Count total projects ────────────────────────────────────────────────────────
 count_projects() {
@@ -68,6 +91,8 @@ build_category_sections() {
 cat > "$OUTPUT" << HEADER
 # $REPO_NAME
 
+> **Learning sandbox** — $TOTAL_PROJECTS projects in repository
+
 <!-- CI / Pages -->
 [![Build](https://github.com/$GITHUB_REPO/actions/workflows/build.yml/badge.svg)](https://github.com/$GITHUB_REPO/actions/workflows/build.yml)
 [![Docs](https://github.com/$GITHUB_REPO/actions/workflows/update-docs.yml/badge.svg)](https://github.com/$GITHUB_REPO/actions/workflows/update-docs.yml)
@@ -84,7 +109,7 @@ cat > "$OUTPUT" << HEADER
 
 ---
 
-## 📚 Projects (TOTAL: $TOTAL_PROJECTS)
+## 📚 Projects
 
 HEADER
 
@@ -98,7 +123,7 @@ cat >> "$OUTPUT" << FOOTER
 
 | Workflow | Trigger | Action |
 |----------|---------|--------|
-| \`build.yml\` | push / PR | Compiles all Maven projects |
+| \`build.yml\` | push / PR | Compiles and tests all Maven projects |
 | \`update-docs.yml\` | push | Regenerates README + GitHub Pages site |
 
 ---
@@ -112,4 +137,4 @@ Visit the live site: **[https://$GITHUB_USER.github.io/$REPO_NAME/](https://$GIT
 *Last updated: $UPDATED — [source](.github/workflows/update-docs.yml)*
 FOOTER
 
-echo "✔ README.md generated ($TOTAL_PROJECTS projects)"
+echo "✔ README.md generated ($TOTAL_PROJECTS projects across ${#CATEGORIES[@]} categories)"

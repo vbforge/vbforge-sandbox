@@ -14,7 +14,30 @@ GITHUB_USER="${GITHUB_REPOSITORY_OWNER:-vbforge}"
 GITHUB_REPO="${GITHUB_REPOSITORY:-$GITHUB_USER/$REPO_NAME}"
 UPDATED=$(date -u '+%Y-%m-%d %H:%M UTC')
 
-CATEGORIES=(java-core spring-boot concurrency cloud docker database kafka)
+# ── Folders to always skip ─────────────────────────────────────────────────────
+SKIP_DIRS=(".github" ".idea" ".git" "docs" "scripts" "collections" "target" "node_modules")
+
+is_skipped() {
+  local name="$1"
+  for skip in "${SKIP_DIRS[@]}"; do
+    [[ "$name" == "$skip" ]] && return 0
+  done
+  return 1
+}
+
+# ── Auto-discover category folders ─────────────────────────────────────────────
+discover_categories() {
+  local cats=()
+  while IFS= read -r -d '' dir; do
+    local name
+    name=$(basename "$dir")
+    is_skipped "$name" && continue
+    cats+=("$name")
+  done < <(find "$REPO_ROOT" -mindepth 1 -maxdepth 1 -type d -print0 | sort -z)
+  echo "${cats[@]}"
+}
+
+read -ra CATEGORIES <<< "$(discover_categories)"
 
 # ── Gather project data ─────────────────────────────────────────────────────────
 declare -A CAT_COUNTS
@@ -52,6 +75,8 @@ build_cards() {
   for cat in "${CATEGORIES[@]}"; do
     local count="${CAT_COUNTS[$cat]}"
     local projs_str="${CAT_PROJECTS[$cat]}"
+
+    [[ "$count" -eq 0 ]] && continue
 
     local items_html=""
     if [[ -n "$projs_str" ]]; then
@@ -162,7 +187,7 @@ cat > "$OUTPUT" << HTML
         <div class="pipe-arrow">→</div>
         <div class="pipe-step">
           <div class="pipe-icon">🔨</div>
-          <div class="pipe-label">build.yml<br/><small>Maven compile</small></div>
+          <div class="pipe-label">build.yml<br/><small>Maven verify</small></div>
         </div>
         <div class="pipe-arrow">→</div>
         <div class="pipe-step">
@@ -188,7 +213,7 @@ cat > "$OUTPUT" << HTML
         datasets: [{
           label: 'Projects',
           data: $CHART_DATA,
-          backgroundColor: ['#e8ff47','#47ffe8','#ff6b47','#b847ff','#47b8ff','#ff47a0','#ffa047'],
+          backgroundColor: ['#e8ff47','#47ffe8','#ff6b47','#b847ff','#47b8ff','#ff47a0','#ffa047','#47ff8b','#ff4747','#47a0ff'],
           borderWidth: 0,
           borderRadius: 6,
         }]
@@ -211,4 +236,4 @@ cat > "$OUTPUT" << HTML
 </html>
 HTML
 
-echo "✔ docs/index.html generated"
+echo "✔ docs/index.html generated (${#CATEGORIES[@]} categories, $TOTAL projects)"
