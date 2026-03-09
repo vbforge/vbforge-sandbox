@@ -99,7 +99,7 @@ cat > "$OUTPUT" << HEADER
 [![Pages](https://img.shields.io/badge/GitHub%20Pages-live-brightgreen)](https://$GITHUB_USER.github.io/$REPO_NAME/)
 
 <!-- Language & platform -->
-![Java](https://img.shields.io/badge/Java-17-ED8B00?logo=openjdk&logoColor=white)
+![Java](https://img.shields.io/badge/Java-21-ED8B00?logo=openjdk&logoColor=white)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-6DB33F?logo=springboot&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-ready-2496ED?logo=docker&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-Database-4479A1?logo=mysql&logoColor=white)
