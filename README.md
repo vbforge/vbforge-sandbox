@@ -1,5 +1,7 @@
 # vbforge-sandbox
 
+> **Learning sandbox** — 5 projects in repository
+
 <!-- CI / Pages -->
 [![Build](https://github.com/vbforge/vbforge-sandbox/actions/workflows/build.yml/badge.svg)](https://github.com/vbforge/vbforge-sandbox/actions/workflows/build.yml)
 [![Docs](https://github.com/vbforge/vbforge-sandbox/actions/workflows/update-docs.yml/badge.svg)](https://github.com/vbforge/vbforge-sandbox/actions/workflows/update-docs.yml)
@@ -16,15 +18,8 @@
 
 ---
 
-## 📚 Projects (TOTAL: 4)
+## 📚 Projects
 
-
-### 📁 `java-core`
-
-| Project | Description |
-|---------|-------------|
-| [`generics-lab`](./java-core/generics-lab) | Experiments with Java Generics, type bounds, wildcards and practical examples. |
-| [`hello-world`](./java-core/hello-world) | Starting project!)) |
 
 ### 📁 `concurrency`
 
@@ -33,13 +28,26 @@
 | [`concurrency-collections-exploration`](./concurrency/concurrency-collections-exploration) | Focus on: ConcurrentHashMap, CopyOnWriteArrayList, Queue-Concurrent-Collections |
 | [`threads-simple`](./concurrency/threads-simple) | Experiments with threads, and other related topics around threads. |
 
+### 📁 `java-core`
+
+| Project | Description |
+|---------|-------------|
+| [`generics-lab`](./java-core/generics-lab) | Experiments with Java Generics, type bounds, wildcards and practical examples. |
+| [`hello-world`](./java-core/hello-world) | Starting project!)) |
+
+### 📁 `jwt`
+
+| Project | Description |
+|---------|-------------|
+| [`validation-and-sign`](./jwt/validation-and-sign) | Experiments with JWT (pure JWT mechanics), signing and validation using JJWT 0.1 |
+
 ---
 
 ## 🔄 Automation
 
 | Workflow | Trigger | Action |
 |----------|---------|--------|
-| `build.yml` | push / PR | Compiles all Maven projects |
+| `build.yml` | push / PR | Compiles and tests all Maven projects |
 | `update-docs.yml` | push | Regenerates README + GitHub Pages site |
 
 ---
@@ -50,4 +58,4 @@ Visit the live site: **[https://vbforge.github.io/vbforge-sandbox/](https://vbfo
 
 ---
 
-*Last updated: 2026-03-09 19:21 UTC — [source](.github/workflows/update-docs.yml)*
+*Last updated: 2026-03-09 20:03 UTC — [source](.github/workflows/update-docs.yml)*

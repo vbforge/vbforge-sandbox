@@ -32,11 +32,11 @@
 
     <section class="stats-row">
       <div class="stat-pill">
-        <span class="stat-number" id="total-count">4</span>
+        <span class="stat-number" id="total-count">5</span>
         <span class="stat-label">Total Projects</span>
       </div>
       <div class="stat-pill">
-        <span class="stat-number">7</span>
+        <span class="stat-number">3</span>
         <span class="stat-label">Categories</span>
       </div>
       <div class="stat-pill">
@@ -45,7 +45,7 @@
       </div>
       <div class="stat-pill updated-pill">
         <span class="stat-label">Last updated</span>
-        <span class="stat-number small">2026-03-09 19:21 UTC</span>
+        <span class="stat-number small">2026-03-09 20:03 UTC</span>
       </div>
     </section>
 
@@ -59,25 +59,7 @@
     <section class="cards-section">
       <h2 class="section-title">Repository Explorer</h2>
       <div class="cards-grid">
-        <div class="card" data-category="java-core">
-  <div class="card-header">
-    <span class="card-title">java-core</span>
-    <span class="card-badge">2</span>
-  </div>
-  <ul class="project-list">
-    <li><a href="https://github.com/vbforge/vbforge-sandbox/tree/main/java-core/generics-lab" target="_blank">generics-lab</a></li><li><a href="https://github.com/vbforge/vbforge-sandbox/tree/main/java-core/hello-world" target="_blank">hello-world</a></li>
-  </ul>
-</div>
-<div class="card" data-category="spring-boot">
-  <div class="card-header">
-    <span class="card-title">spring-boot</span>
-    <span class="card-badge">0</span>
-  </div>
-  <ul class="project-list">
-    <li class="empty">No projects yet</li>
-  </ul>
-</div>
-<div class="card" data-category="concurrency">
+        <div class="card" data-category="concurrency">
   <div class="card-header">
     <span class="card-title">concurrency</span>
     <span class="card-badge">2</span>
@@ -86,40 +68,22 @@
     <li><a href="https://github.com/vbforge/vbforge-sandbox/tree/main/concurrency/concurrency-collections-exploration" target="_blank">concurrency-collections-exploration</a></li><li><a href="https://github.com/vbforge/vbforge-sandbox/tree/main/concurrency/threads-simple" target="_blank">threads-simple</a></li>
   </ul>
 </div>
-<div class="card" data-category="cloud">
+<div class="card" data-category="java-core">
   <div class="card-header">
-    <span class="card-title">cloud</span>
-    <span class="card-badge">0</span>
+    <span class="card-title">java-core</span>
+    <span class="card-badge">2</span>
   </div>
   <ul class="project-list">
-    <li class="empty">No projects yet</li>
+    <li><a href="https://github.com/vbforge/vbforge-sandbox/tree/main/java-core/generics-lab" target="_blank">generics-lab</a></li><li><a href="https://github.com/vbforge/vbforge-sandbox/tree/main/java-core/hello-world" target="_blank">hello-world</a></li>
   </ul>
 </div>
-<div class="card" data-category="docker">
+<div class="card" data-category="jwt">
   <div class="card-header">
-    <span class="card-title">docker</span>
-    <span class="card-badge">0</span>
+    <span class="card-title">jwt</span>
+    <span class="card-badge">1</span>
   </div>
   <ul class="project-list">
-    <li class="empty">No projects yet</li>
-  </ul>
-</div>
-<div class="card" data-category="database">
-  <div class="card-header">
-    <span class="card-title">database</span>
-    <span class="card-badge">0</span>
-  </div>
-  <ul class="project-list">
-    <li class="empty">No projects yet</li>
-  </ul>
-</div>
-<div class="card" data-category="kafka">
-  <div class="card-header">
-    <span class="card-title">kafka</span>
-    <span class="card-badge">0</span>
-  </div>
-  <ul class="project-list">
-    <li class="empty">No projects yet</li>
+    <li><a href="https://github.com/vbforge/vbforge-sandbox/tree/main/jwt/validation-and-sign" target="_blank">validation-and-sign</a></li>
   </ul>
 </div>
       </div>
@@ -135,7 +99,7 @@
         <div class="pipe-arrow">→</div>
         <div class="pipe-step">
           <div class="pipe-icon">🔨</div>
-          <div class="pipe-label">build.yml<br/><small>Maven compile</small></div>
+          <div class="pipe-label">build.yml<br/><small>Maven verify</small></div>
         </div>
         <div class="pipe-arrow">→</div>
         <div class="pipe-step">
@@ -157,11 +121,11 @@
     new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: ["java-core","spring-boot","concurrency","cloud","docker","database","kafka"],
+        labels: ["concurrency","java-core","jwt"],
         datasets: [{
           label: 'Projects',
-          data: [2,0,2,0,0,0,0],
-          backgroundColor: ['#e8ff47','#47ffe8','#ff6b47','#b847ff','#47b8ff','#ff47a0','#ffa047'],
+          data: [2,2,1],
+          backgroundColor: ['#e8ff47','#47ffe8','#ff6b47','#b847ff','#47b8ff','#ff47a0','#ffa047','#47ff8b','#ff4747','#47a0ff'],
           borderWidth: 0,
           borderRadius: 6,
         }]
