@@ -1,5 +1,5 @@
-# concurrency-collections-exploration
-Focus on: ConcurrentHashMap, CopyOnWriteArrayList, Queue-Concurrent-Collections
+# concurrency-collections
+ConcurrentHashMap, CopyOnWriteArrayList, Queue based Concurrent
 
 ## Topics
  * maps       – mainly ConcurrentHashMap (most common & performant)

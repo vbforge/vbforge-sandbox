@@ -25,7 +25,7 @@
 
 | Project | Description |
 |---------|-------------|
-| [`concurrency-collections-exploration`](./concurrency/concurrency-collections-exploration) | Focus on: ConcurrentHashMap, CopyOnWriteArrayList, Queue-Concurrent-Collections |
+| [`concurrency-collections-exploration`](concurrency/concurrency-collections) | Focus on: ConcurrentHashMap, CopyOnWriteArrayList, Queue-Concurrent-Collections |
 | [`threads-simple`](./concurrency/threads-simple) | Experiments with threads, and other related topics around threads. |
 
 ### 📁 `java-core`
