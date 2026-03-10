@@ -1,7 +1,5 @@
 # vbforge-sandbox
 
-> **Learning sandbox** — 6 projects in repository
-
 <!-- CI / Pages -->
 [![Build](https://github.com/vbforge/vbforge-sandbox/actions/workflows/build.yml/badge.svg)](https://github.com/vbforge/vbforge-sandbox/actions/workflows/build.yml)
 [![Docs](https://github.com/vbforge/vbforge-sandbox/actions/workflows/update-docs.yml/badge.svg)](https://github.com/vbforge/vbforge-sandbox/actions/workflows/update-docs.yml)
@@ -18,7 +16,7 @@
 
 ---
 
-## 📚 Projects
+## Total Projects: 6
 
 
 ### 📁 `concurrency`
@@ -59,4 +57,4 @@ Visit the live site: **[https://vbforge.github.io/vbforge-sandbox/](https://vbfo
 
 ---
 
-*Last updated: 2026-03-10 01:23 UTC — [source](.github/workflows/update-docs.yml)*
+*Last updated: 2026-03-10 01:30 UTC — [source](.github/workflows/update-docs.yml)*
