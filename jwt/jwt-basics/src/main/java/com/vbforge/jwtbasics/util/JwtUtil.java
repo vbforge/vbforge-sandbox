@@ -48,9 +48,18 @@ public class JwtUtil {
     /**
      * Generates a JWT token for the given user.
      * The token subject (sub claim) is set to the username.
+     * If the user has an email, it is embedded as a custom claim.
      */
     public String generateToken(UserDetails userDetails) {
-        return generateToken(new HashMap<>(), userDetails);
+        Map<String, Object> extraClaims = new HashMap<>();
+
+        // Embed email claim if the user provides it
+        if (userDetails instanceof com.vbforge.jwtbasics.entity.User user
+                && user.getEmail() != null) {
+            extraClaims.put("email", user.getEmail());
+        }
+
+        return generateToken(extraClaims, userDetails);
     }
 
     /**
@@ -92,6 +101,11 @@ public class JwtUtil {
     /** Extract the username (subject claim) from the token */
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
+    }
+
+    /** Extract the email (custom claim) from the token */
+    public String extractEmail(String token) {
+        return extractClaim(token, claims -> claims.get("email", String.class));
     }
 
     /** Extract the expiration date from the token */

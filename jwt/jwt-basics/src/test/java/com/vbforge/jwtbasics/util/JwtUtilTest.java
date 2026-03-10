@@ -56,6 +56,14 @@ class JwtUtilTest {
     }
 
     @Test
+    @DisplayName("Generated token should contain the correct email as custom claim")
+    void shouldExtractCorrectUserEmail() {
+        String token = jwtUtil.generateToken(testUser);
+        String userEmail = jwtUtil.extractEmail(token);
+        assertThat(userEmail).isEqualTo("test@example.com");
+    }
+
+    @Test
     @DisplayName("Token should be valid for the same user")
     void shouldValidateTokenForSameUser() {
         String token = jwtUtil.generateToken(testUser);

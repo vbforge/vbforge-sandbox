@@ -21,6 +21,8 @@ jobs:
           distribution: 'temurin'
 
       - name: Build and test all Maven projects
+        env:
+          JWT_SECRET: ${{ secrets.JWT_SECRET }}
         run: |
           FAIL_FLAG=$(mktemp)
           echo "0" > "$FAIL_FLAG"
@@ -34,7 +36,7 @@ jobs:
               echo "──────────────────────────────"
               echo "▶ Building: $dir"
               echo "──────────────────────────────"
-              if (cd "$dir" && mvn clean verify -q --no-transfer-progress); then
+              if (cd "$dir" && mvn clean verify -q --no-transfer-progress -Djwt.secret="${JWT_SECRET}"); then
                 echo "✔ $dir — OK"
               else
                 echo "✘ $dir — FAILED"
