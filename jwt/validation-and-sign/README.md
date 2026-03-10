@@ -1,5 +1,5 @@
 # validation-and-sign
-Experiments with JWT (pure JWT mechanics), signing and validation using JJWT 0.12.x.
+Experiments with JWT (pure JWT mechanics), sign and valid by JJWT 0.12.x.
 
 Three `JwtUtil` variants explore key length, algorithm choice, cross-secret rejection, and token tampering.
 
