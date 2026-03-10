@@ -39,7 +39,7 @@
 
 | Project | Description |
 |---------|-------------|
-| [`jwt-basics`](./jwt/jwt-basics) | Understand how JWT authentication works end-to-end with Spring Boot 3 + Spring S |
+| [`jwt-basics`](./jwt/jwt-basics) | How JWT authentication works end-to-end (Spring Boot 3 + Spring Security 6) |
 | [`validation-and-sign`](./jwt/validation-and-sign) | Experiments with JWT (pure JWT mechanics), signing and validation using JJWT 0.1 |
 
 ---
@@ -59,4 +59,4 @@ Visit the live site: **[https://vbforge.github.io/vbforge-sandbox/](https://vbfo
 
 ---
 
-*Last updated: 2026-03-10 01:17 UTC — [source](.github/workflows/update-docs.yml)*
+*Last updated: 2026-03-10 01:23 UTC — [source](.github/workflows/update-docs.yml)*
