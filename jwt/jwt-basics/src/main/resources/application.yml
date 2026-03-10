@@ -1,0 +1,8 @@
+spring:
+  profiles:
+    active: ${SPRING_PROFILE:dev}
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
