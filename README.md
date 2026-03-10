@@ -1,6 +1,6 @@
 # vbforge-sandbox
 
-> **Learning sandbox** — 5 projects in repository
+> **Learning sandbox** — 6 projects in repository
 
 <!-- CI / Pages -->
 [![Build](https://github.com/vbforge/vbforge-sandbox/actions/workflows/build.yml/badge.svg)](https://github.com/vbforge/vbforge-sandbox/actions/workflows/build.yml)
@@ -39,6 +39,7 @@
 
 | Project | Description |
 |---------|-------------|
+| [`jwt-basics`](./jwt/jwt-basics) | Understand how JWT authentication works end-to-end with Spring Boot 3 + Spring S |
 | [`validation-and-sign`](./jwt/validation-and-sign) | Experiments with JWT (pure JWT mechanics), signing and validation using JJWT 0.1 |
 
 ---
@@ -58,4 +59,4 @@ Visit the live site: **[https://vbforge.github.io/vbforge-sandbox/](https://vbfo
 
 ---
 
-*Last updated: 2026-03-09 20:54 UTC — [source](.github/workflows/update-docs.yml)*
+*Last updated: 2026-03-10 01:17 UTC — [source](.github/workflows/update-docs.yml)*
