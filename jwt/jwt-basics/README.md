@@ -1,5 +1,5 @@
 # jwt-basics
-Understand how JWT authentication works end-to-end with Spring Boot 3 + Spring Security 6
+How JWT authentication works end-to-end (Spring Boot 3 + Spring Security 6)
 
 
 
