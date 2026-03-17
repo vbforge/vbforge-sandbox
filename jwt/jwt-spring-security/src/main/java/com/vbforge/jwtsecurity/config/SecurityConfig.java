@@ -27,7 +27,7 @@ public class SecurityConfig {
 
                 // Define which endpoints are public vs protected
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/**").permitAll()
+                        .requestMatchers("/api/health", "/api/auth/signup", "/api/auth/login", "/api/data").permitAll()
                         .anyRequest().authenticated()
                 );
         return http.build();
