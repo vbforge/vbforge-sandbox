@@ -13,19 +13,13 @@ public class AuthController {
 
     private UserService userService;
 
-    //api/demo/hello
-    @GetMapping("/hello")
-    public String demo() {
-        return "Hello World!";
-    }
-
-    //api/demo/signup
+    //http://localhost:8080/api/auth/signup
     @PostMapping("/signup")
     public void signup(@RequestBody SignupDTO signupDTO) {
         userService.saveUser(signupDTO.getLogin(), signupDTO.getPassword());
     }
 
-    //api/demo/login
+    //http://localhost:8080/api/auth/login
     @PostMapping("/login")
     public String login(@RequestBody LoginDTO loginDTO) {
          return userService.loginUser(loginDTO.getLogin(), loginDTO.getPassword());

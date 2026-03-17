@@ -23,12 +23,9 @@ public class UserRepository {
             ps.setString(3, role);
             ps.execute();
 
-
         } catch (Exception e){
            throw  new RuntimeException(e);
         }
-
-
 
     }
 
@@ -48,6 +45,35 @@ public class UserRepository {
         }catch (Exception e){
             throw  new RuntimeException(e);
         }
-
     }
+
+    public String findPasswordByUsername(String login){
+        try(Connection connection = dataSource.getConnection()){
+            PreparedStatement ps = connection.prepareStatement("SELECT password FROM users WHERE username = ?");
+            ps.setString(1, login);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            return rs.getString("password");
+
+        }catch (Exception e){
+            throw  new RuntimeException(e);
+        }
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
