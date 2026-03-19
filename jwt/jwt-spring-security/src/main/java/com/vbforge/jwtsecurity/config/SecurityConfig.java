@@ -1,6 +1,7 @@
 package com.vbforge.jwtsecurity.config;
 
 import com.vbforge.jwtsecurity.filter.JwtFilter;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,10 +15,9 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 @EnableWebSecurity
-
+@AllArgsConstructor
 public class SecurityConfig {
 
-    @Autowired
     private JwtFilter jwtFilter;
 
     @Bean
@@ -34,7 +34,7 @@ public class SecurityConfig {
 
                 // Define which endpoints are public vs protected
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/health", "/api/auth/signup", "/api/auth/login", "/api/data").permitAll()
+                        .requestMatchers("/api/health", "/api/auth/signup", "/api/auth/login", "/api/data", "/api/advance").permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);

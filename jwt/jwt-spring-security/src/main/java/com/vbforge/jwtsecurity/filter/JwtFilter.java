@@ -53,12 +53,10 @@ public class JwtFilter extends OncePerRequestFilter {
 
         String servletPath = request.getServletPath();
 
-        //"/api/health", "/api/auth/signup", "/api/auth/login", "/api/data"
+        //"/api/health", "/api/auth/signup", "/api/auth/login", "/api/data", "/api/advance"
 
         return switch (servletPath) {
-            case "/api/health" -> true;
-            case "/api/auth/signup" -> true;
-            case "/api/auth/login" -> true;
+            case "/api/health", "/api/auth/signup", "/api/auth/login" -> true;  //no filter
             default -> false;
         };
 
