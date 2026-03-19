@@ -27,4 +27,8 @@ public class UserService {
         }
         return jwtUtil.generateToken(login, "ROLE_USER");
     }
+
+    public boolean isUserExists(String login, String password) {
+        return userRepository.existUser(login, password);
+    }
 }

@@ -15,9 +15,12 @@ public class UserRepository {
     private DataSource dataSource;
 
     public void createUser(String username, String password, String role) {
-        try(Connection connection = dataSource.getConnection()){
 
-            PreparedStatement ps = connection.prepareStatement("INSERT INTO users (username, password, role) VALUES (?, ?, ?)");
+        String sql = "INSERT INTO users (username, password, role) VALUES (?, ?, ?)";
+
+        try(Connection connection = dataSource.getConnection();
+            PreparedStatement ps = connection.prepareStatement(sql)
+        ){
             ps.setString(1, username);
             ps.setString(2, password);
             ps.setString(3, role);
@@ -26,15 +29,16 @@ public class UserRepository {
         } catch (Exception e){
            throw  new RuntimeException(e);
         }
-
     }
 
 
     public boolean existUser(String login, String password) {
 
-        try(Connection connection = dataSource.getConnection()){
+        String sql = "SELECT count(*) as count FROM users WHERE username = ? AND password = ?";
 
-            PreparedStatement ps = connection.prepareStatement("SELECT count(*) as count FROM users WHERE username = ? AND password = ?");
+        try(Connection connection = dataSource.getConnection();
+            PreparedStatement ps = connection.prepareStatement(sql)
+        ){
             ps.setString(1, login);
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
@@ -48,8 +52,12 @@ public class UserRepository {
     }
 
     public String findPasswordByUsername(String login){
-        try(Connection connection = dataSource.getConnection()){
-            PreparedStatement ps = connection.prepareStatement("SELECT password FROM users WHERE username = ?");
+
+        String sql = "SELECT password FROM users WHERE username = ?";
+
+        try(Connection connection = dataSource.getConnection();
+            PreparedStatement ps = connection.prepareStatement(sql)
+        ){
             ps.setString(1, login);
             ResultSet rs = ps.executeQuery();
             rs.next();

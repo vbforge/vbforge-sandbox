@@ -25,6 +25,14 @@ public class AuthController {
          return userService.loginUser(loginDTO.getLogin(), loginDTO.getPassword());
     }
 
+    //http://localhost:8080/api/auth/existUser
+    @GetMapping("/existUser")
+    public boolean existUserCheck(@RequestBody LoginDTO loginDTO) {
+        return userService.isUserExists(loginDTO.getLogin(), loginDTO.getPassword());
+    }
+
+
+
 
 
 }

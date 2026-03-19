@@ -6,20 +6,23 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
+import lombok.NonNull;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
-import java.util.Map;
 
 @Component
 @AllArgsConstructor
-public class JwtFilter extends OncePerRequestFilter {
+public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private JwtUtil jwtUtil;
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+    protected void doFilterInternal(
+            @NonNull HttpServletRequest request,
+            @NonNull HttpServletResponse response,
+            @NonNull FilterChain filterChain) throws ServletException, IOException {
 
         String header = request.getHeader("Authorization");
         if(header == null || !header.startsWith("Bearer ")){
@@ -56,7 +59,7 @@ public class JwtFilter extends OncePerRequestFilter {
         //"/api/health", "/api/auth/signup", "/api/auth/login", "/api/data", "/api/advance"
 
         return switch (servletPath) {
-            case "/api/health", "/api/auth/signup", "/api/auth/login" -> true;  //no filter
+            case "/api/health", "/api/auth/signup", "/api/auth/login", "/api/auth/existUser" -> true;  //no filter
             default -> false;
         };
 
