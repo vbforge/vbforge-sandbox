@@ -34,7 +34,5 @@ logs/
 # Docker
 *.pid
 
-# Other files
-topics-potential.md
 
 
