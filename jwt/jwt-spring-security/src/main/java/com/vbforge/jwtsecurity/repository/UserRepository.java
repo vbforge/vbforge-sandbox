@@ -1,5 +1,6 @@
 package com.vbforge.jwtsecurity.repository;
 
+import com.vbforge.jwtsecurity.entity.User;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -67,6 +68,28 @@ public class UserRepository {
             throw  new RuntimeException(e);
         }
     }
+
+    public User findUserByUsername(String username){
+        String sql = "SELECT * FROM users WHERE username = ?";
+
+        try(Connection connection = dataSource.getConnection();
+        PreparedStatement ps = connection.prepareStatement(sql)
+        ){
+            ps.setString(1, username);
+            ResultSet rs = ps.executeQuery();
+            User user = new User();
+            while(rs.next()){
+                user.setUsername(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                user.setRole(rs.getString("role"));
+            }
+            return user;
+
+        }catch (Exception e){
+            throw  new RuntimeException(e);
+        }
+    }
+
 
 }
 

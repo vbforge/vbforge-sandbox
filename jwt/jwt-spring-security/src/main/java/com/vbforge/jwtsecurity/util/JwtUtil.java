@@ -5,14 +5,14 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
 import java.nio.charset.StandardCharsets;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 
 @Component
@@ -39,8 +39,25 @@ public class JwtUtil {
 
 
     public boolean isTokenValid(String token, UserDetails userDetails) {
-        final String username = extractUsername(token);
-        return username.equals(userDetails.getUsername()) && !isTokenExpired(token);
+        //one role from current token
+        String extractUserRole = extractUserRole(token);
+
+        //all existed roles from db
+        Collection<? extends GrantedAuthority> grantedAuthorities = userDetails.getAuthorities();
+
+        Set<String> rolesAuth = new HashSet<>();
+
+        for (GrantedAuthority grantedAuthority : grantedAuthorities) {
+            String authority = grantedAuthority.getAuthority();
+            rolesAuth.add(authority);
+        }
+
+        //check if found role is existed in db
+        if(!rolesAuth.contains(extractUserRole)){
+            return false; //-->token is not valid
+        }
+
+        return !isTokenExpired(token);
     }
 
     private boolean isTokenExpired(String token) {

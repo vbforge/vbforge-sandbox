@@ -15,7 +15,8 @@ import java.util.Map;
 public class ApiAdvanceController {
 
     @GetMapping()
-    public Map<String, String> getData(HttpServletRequest request, HttpServletResponse response) {
+    public Map<String, String> getData() {
+
 
 
         return Map.of("key", "advanced");
