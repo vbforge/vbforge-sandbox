@@ -1,3 +1,6 @@
 spring:
   application:
     name: jwt-spring-security-jpa
+
+  profiles:
+    active: dev

@@ -1,5 +1,6 @@
-package com.vbforge.jwtspringjap;
+package com.vbforge.jwtspringjpa;
 
+import io.github.cdimascio.dotenv.Dotenv;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -7,8 +8,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class JwtSpringSecurityJpaApplication {
 
     public static void main(String[] args) {
-        System.out.println("Jwt Spring Security Jpa Application started!");
+
+        Dotenv dotenv = Dotenv.load();
+        System.setProperty("DB_URL", dotenv.get("DB_URL"));
+        System.setProperty("DB_USERNAME", dotenv.get("DB_USERNAME"));
+        System.setProperty("DB_PASSWORD", dotenv.get("DB_PASSWORD"));
+
         SpringApplication.run(JwtSpringSecurityJpaApplication.class, args);
+
     }
 
 }

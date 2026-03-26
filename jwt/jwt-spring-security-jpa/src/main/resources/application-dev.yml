@@ -1,0 +1,48 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true  # Important: allows Flyway to work with an existing schema
+    validate-on-migrate: true
+
+# -------------------------------------------------------
+# JWT Configuration
+# -------------------------------------------------------
+# secret: must be a long random string (min 256-bit for HS256)
+# expiration: token validity in milliseconds
+#   - 900000    =  15 minutes
+#   - 3600000   =  1 hour
+#   - 86400000  =  24 hours
+# -------------------------------------------------------
+jwt:
+  secret: ${JWT_SECRET}
+  expiration: ${JWT_EXPIRATION}
+
+logging:
+  level:
+    com.vbforge.jwtspringjpa: DEBUG
+    org.springframework.security: DEBUG
+
+app:
+  admin:
+    username: ${ADMIN_USERNAME}
+    email: ${ADMIN_EMAIL}
+    password: ${ADMIN_PASSWORD}
