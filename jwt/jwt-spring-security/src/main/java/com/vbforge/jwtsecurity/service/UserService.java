@@ -1,10 +1,10 @@
 package com.vbforge.jwtsecurity.service;
 
+import com.vbforge.jwtsecurity.entity.User;
 import com.vbforge.jwtsecurity.repository.UserRepository;
 import com.vbforge.jwtsecurity.util.JwtUtil;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -21,11 +21,11 @@ public class UserService {
     }
 
     public String loginUser(String login, String password) {
-        String stored = userRepository.findPasswordByUsername(login);
-        if(!passwordEncoder.matches(password, stored)) {
+        User userByUsername = userRepository.findUserByUsername(login);
+        if(!passwordEncoder.matches(password, userByUsername.getPassword())) {
             throw new UsernameNotFoundException("Invalid username or password.");
         }
-        return jwtUtil.generateToken(login, "ROLE_USER");
+        return jwtUtil.generateToken(login, userByUsername.getRole());
     }
 
     public boolean isUserExists(String login, String password) {
