@@ -16,7 +16,7 @@
 
 ---
 
-## Total Projects: 6
+## Total Projects: 7
 
 
 ### 📁 `concurrency`
@@ -38,6 +38,7 @@
 | Project | Description |
 |---------|-------------|
 | [`jwt-spring-security`](./jwt/jwt-spring-security) | How a JWT token travels through the application |
+| [`jwt-spring-security-jpa`](./jwt/jwt-spring-security-jpa) | Simple REST API with jwt, auth, roles, jpa User entity |
 | [`validation-and-sign`](./jwt/validation-and-sign) | Experiments with JWT (pure JWT mechanics), sign and valid by JJWT 0.12.x. |
 
 ---
@@ -57,4 +58,4 @@ Visit the live site: **[https://vbforge.github.io/vbforge-sandbox/](https://vbfo
 
 ---
 
-*Last updated: 2026-03-26 09:59 UTC — [source](.github/workflows/update-docs.yml)*
+*Last updated: 2026-03-26 11:57 UTC — [source](.github/workflows/update-docs.yml)*
