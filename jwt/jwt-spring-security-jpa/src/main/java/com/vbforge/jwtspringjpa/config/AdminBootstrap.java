@@ -3,7 +3,6 @@ package com.vbforge.jwtspringjpa.config;
 import com.vbforge.jwtspringjpa.entity.Role;
 import com.vbforge.jwtspringjpa.entity.User;
 import com.vbforge.jwtspringjpa.repository.UserRepository;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -30,13 +29,20 @@ public class AdminBootstrap implements ApplicationRunner {
     private String password;
 
 
-
     @Override
     public void run(ApplicationArguments args) {
 
         //check if any admin already exist
         if (userRepository.existsByRole(Role.ROLE_ADMIN)) {
             log.info("Admin account already exists — skipping bootstrap.");
+            return;
+        }
+
+        //validation for default admin credentials (from .env)
+        if (username == null || username.isEmpty() ||
+                email == null || email.isEmpty() ||
+                password == null || password.isEmpty()) {
+            log.error("Admin credentials are not configured correctly.");
             return;
         }
 
