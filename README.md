@@ -10,13 +10,14 @@
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-6DB33F?logo=springboot&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-ready-2496ED?logo=docker&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-Database-4479A1?logo=mysql&logoColor=white)
+![Apache Kafka](https://img.shields.io/badge/Apache%20Kafka-KRaft%20Mode-231F20?logo=apachekafka&logoColor=white)
 ![AWS S3](https://img.shields.io/badge/AWS-S3-FF9900?logo=amazons3&logoColor=white)
 ![JUnit 5](https://img.shields.io/badge/JUnit-5-25A162?logo=junit5&logoColor=white)
 ![Mockito](https://img.shields.io/badge/Mockito-5.x-C5D9C8)
 
 ---
 
-## Total Projects: 7
+## Total Projects: 8
 
 
 ### 📁 `concurrency`
@@ -41,6 +42,12 @@
 | [`jwt-spring-security-jpa`](./jwt/jwt-spring-security-jpa) | REST API with jwt, auth, roles, jpa User entity |
 | [`validation-and-sign`](./jwt/validation-and-sign) | Experiments with JWT (pure JWT mechanics), sign and valid by JJWT 0.12.x. |
 
+### 📁 `kafka`
+
+| Project | Description |
+|---------|-------------|
+| [`kafka-producer-consumer`](./kafka/kafka-producer-consumer) | Simple Producer and Consumer (Docker Kafka): production/consumption, callbacks f |
+
 ---
 
 ## 🔄 Automation
@@ -58,4 +65,4 @@ Visit the live site: **[https://vbforge.github.io/vbforge-sandbox/](https://vbfo
 
 ---
 
-*Last updated: 2026-03-28 15:39 UTC — [source](.github/workflows/update-docs.yml)*
+*Last updated: 2026-05-09 21:49 UTC — [source](.github/workflows/update-docs.yml)*
