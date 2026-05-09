@@ -1,5 +1,5 @@
 # kafka-producer-consumer
-Simple Producer and Consumer (Docker Kafka): production/consumption, callbacks for confirmation, graceful shutdown
+Producer/Consumer (Docker Kafka): callbacks for send confirmation, graceful shutdown
 
 ---
 
