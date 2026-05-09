@@ -46,7 +46,7 @@
 
 | Project | Description |
 |---------|-------------|
-| [`kafka-producer-consumer`](./kafka/kafka-producer-consumer) | Simple Producer and Consumer (Docker Kafka): production/consumption, callbacks f |
+| [`kafka-producer-consumer`](./kafka/kafka-producer-consumer) | Producer/Consumer (Docker Kafka): callbacks for send confirmation, graceful shutdown |
 
 ---
 
@@ -65,4 +65,4 @@ Visit the live site: **[https://vbforge.github.io/vbforge-sandbox/](https://vbfo
 
 ---
 
-*Last updated: 2026-05-09 21:49 UTC — [source](.github/workflows/update-docs.yml)*
+*Last updated: 2026-05-09 21:56 UTC — [source](.github/workflows/update-docs.yml)*
