@@ -76,10 +76,10 @@ build_category_sections() {
       local proj_readme="$dir/$proj/README.md"
       local proj_pom="$dir/$proj/pom.xml"
       if [[ -f "$proj_readme" ]]; then
-        desc=$(grep -m1 "^[A-Z]" "$proj_readme" 2>/dev/null | head -c 150 || true)
+        desc=$(grep -m1 "^[A-Z]" "$proj_readme" 2>/dev/null | head -c 250 || true)
       elif [[ -f "$proj_pom" ]]; then
         desc=$(grep -m1 "<description>" "$proj_pom" 2>/dev/null \
-          | sed 's|.*<description>\(.*\)</description>.*|\1|' | head -c 150 || true)
+          | sed 's|.*<description>\(.*\)</description>.*|\1|' | head -c 250 || true)
       fi
       [[ -z "$desc" ]] && desc="—"
       echo "| [\`$proj\`](./$cat/$proj) | $desc |"

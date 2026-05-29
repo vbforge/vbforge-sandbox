@@ -1,0 +1,1 @@
+POST http://localhost:8080/api/producer/send-blocking?content=Hello from Kafka (send-blocking)!

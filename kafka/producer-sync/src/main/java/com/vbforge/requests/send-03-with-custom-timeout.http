@@ -1,0 +1,1 @@
+POST http://localhost:8080/api/producer/send-with-custom-timeout?content=Hello from Kafka (send-with-custom-timeout)!&timeoutSeconds=5
