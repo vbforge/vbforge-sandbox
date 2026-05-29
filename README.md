@@ -17,7 +17,7 @@
 
 ---
 
-## Total Projects: 8
+## Total Projects: 9
 
 
 ### 📁 `concurrency`
@@ -47,6 +47,7 @@
 | Project | Description |
 |---------|-------------|
 | [`kafka-producer-consumer`](./kafka/kafka-producer-consumer) | Producer/Consumer (Docker Kafka): callbacks for send confirmation, graceful shutdown |
+| [`producer-sync`](./kafka/producer-sync) | Synchronous Kafka producer communication with blocking sends, timeout handling, retries, acknowledgments, and RecordMetadata inspection. (Docker Kafka) |
 
 ---
 
@@ -65,4 +66,4 @@ Visit the live site: **[https://vbforge.github.io/vbforge-sandbox/](https://vbfo
 
 ---
 
-*Last updated: 2026-05-09 21:56 UTC — [source](.github/workflows/update-docs.yml)*
+*Last updated: 2026-05-29 16:53 UTC — [source](.github/workflows/update-docs.yml)*
