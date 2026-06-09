@@ -17,7 +17,7 @@
 
 ---
 
-## Total Projects: 9
+## Total Projects: 10
 
 
 ### 📁 `concurrency`
@@ -49,6 +49,12 @@
 | [`kafka-producer-consumer`](./kafka/kafka-producer-consumer) | Producer/Consumer (Docker Kafka): callbacks for send confirmation, graceful shutdown |
 | [`producer-sync`](./kafka/producer-sync) | Synchronous Kafka producer communication with blocking sends, timeout handling, retries, acknowledgments, and RecordMetadata inspection. (Docker Kafka) |
 
+### 📁 `testcontainers`
+
+| Project | Description |
+|---------|-------------|
+| [`mysql-testcontainers-springboot`](./testcontainers/mysql-testcontainers-springboot) | REST API with Spring Boot, MySQL, Flyway, and Testcontainers integration testing |
+
 ---
 
 ## 🔄 Automation
@@ -66,4 +72,4 @@ Visit the live site: **[https://vbforge.github.io/vbforge-sandbox/](https://vbfo
 
 ---
 
-*Last updated: 2026-05-29 16:53 UTC — [source](.github/workflows/update-docs.yml)*
+*Last updated: 2026-06-09 22:11 UTC — [source](.github/workflows/update-docs.yml)*
