@@ -1,0 +1,145 @@
+### Person API Integration Test Suite
+### This script uses IntelliJ HTTP Client variables
+
+### 1. Clean up - Delete if exists
+@baseUrl =http://localhost:8080
+DELETE {{baseUrl}}/api/persons/testuser
+
+### 2. Create test user
+POST {{baseUrl}}/api/persons
+Content-Type: application/json
+
+{
+  "name": "Test User",
+  "email": "test@example.com",
+  "alias": "testuser",
+  "phone": "+1234567890"
+}
+
+> {%
+    client.test("Create user successful", function() {
+        client.assert(response.status === 201, "Response status is 201");
+        client.assert(response.body.id !== undefined, "Has ID");
+        client.assert(response.body.name === "Test User", "Name matches");
+        client.assert(response.body.alias === "testuser", "Alias matches");
+    });
+    client.global.set("userId", response.body.id);
+%}
+
+### 3. Get created user by ID
+GET {{baseUrl}}/api/persons/{{userId}}
+Accept: application/json
+
+> {%
+    client.test("Get user by ID successful", function() {
+        client.assert(response.status === 200, "Response status is 200");
+        client.assert(response.body.id === parseInt(client.global.get("userId")), "ID matches");
+        client.assert(response.body.name === "Test User", "Name matches");
+    });
+%}
+
+### 4. Get user by alias
+GET {{baseUrl}}/api/persons/alias/testuser
+Accept: application/json
+
+> {%
+    client.test("Get user by alias successful", function() {
+        client.assert(response.status === 200, "Response status is 200");
+        client.assert(response.body.alias === "testuser", "Alias matches");
+    });
+%}
+
+### 5. Update user
+PUT {{baseUrl}}/api/persons/{{userId}}
+Content-Type: application/json
+
+{
+  "name": "Test User Updated",
+  "email": "test.updated@example.com"
+}
+
+> {%
+    client.test("Update user successful", function() {
+        client.assert(response.status === 200, "Response status is 200");
+        client.assert(response.body.name === "Test User Updated", "Name updated");
+        client.assert(response.body.email === "test.updated@example.com", "Email updated");
+        client.assert(response.body.alias === "testuser", "Alias unchanged");
+    });
+%}
+
+### 6. Get all users (should include our test user)
+GET {{baseUrl}}/api/persons
+Accept: application/json
+
+> {%
+    client.test("Get all users successful", function() {
+        client.assert(response.status === 200, "Response status is 200");
+        client.assert(Array.isArray(response.body), "Response is array");
+    });
+%}
+
+### 7. Get count
+GET {{baseUrl}}/api/persons/count
+Accept: application/json
+
+> {%
+    client.test("Get count successful", function() {
+        client.assert(response.status === 200, "Response status is 200");
+        client.assert(typeof response.body === "number", "Count is number");
+    });
+%}
+
+### 8. Delete user
+DELETE {{baseUrl}}/api/persons/{{userId}}
+
+> {%
+    client.test("Delete user successful", function() {
+        client.assert(response.status === 204, "Response status is 204");
+    });
+%}
+
+### 9. Verify user deleted (should return 404)
+GET {{baseUrl}}/api/persons/{{userId}}
+Accept: application/json
+
+> {%
+    client.test("User deleted - should return 404", function() {
+        client.assert(response.status === 404, "Response status is 404");
+    });
+%}
+
+### 10. Test duplicate alias (should fail)
+POST {{baseUrl}}/api/persons
+Content-Type: application/json
+
+{
+  "name": "Another User",
+  "email": "another@example.com",
+  "alias": "testuser",
+  "phone": "+9999999999"
+}
+
+> {%
+    client.test("Duplicate alias should return 409", function() {
+        client.assert(response.status === 409, "Response status is 409");
+    });
+%}
+
+### 11. Test invalid data (should fail)
+POST {{baseUrl}}/api/persons
+Content-Type: application/json
+
+{
+  "name": "",
+  "email": "invalid",
+  "alias": "a",
+  "phone": "invalid"
+}
+
+> {%
+    client.test("Invalid data should return 400", function() {
+        client.assert(response.status === 400, "Response status is 400");
+        client.assert(response.body.validationErrors !== undefined, "Has validation errors");
+        client.assert(response.body.validationErrors.length > 0, "Has at least one validation error");
+    });
+%}

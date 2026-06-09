@@ -1,0 +1,196 @@
+### Person API Testing
+### Base URL: http://localhost:8080/api/persons
+
+### 1. CREATE - Create a new person
+POST http://localhost:8080/api/persons
+Content-Type: application/json
+
+{
+  "name": "Alisson Becker",
+  "email": "alisson.becker@example.com",
+  "alias": "alissonbecker",
+  "phone": "+1234567890"
+}
+
+### 2. CREATE - Create another person
+POST http://localhost:8080/api/persons
+Content-Type: application/json
+
+{
+  "name": "Patrik Dorgu",
+  "email": "patrik.dorgu@example.com",
+  "alias": "patrikdorgu",
+  "phone": "+1987654321"
+}
+
+### 3. CREATE - Create person with invalid data (should fail)
+POST http://localhost:8080/api/persons
+Content-Type: application/json
+
+{
+  "name": "",
+  "email": "invalid-email",
+  "alias": "ab",
+  "phone": "123"
+}
+
+### 4. CREATE - Create person with duplicate alias (should fail)
+POST http://localhost:8080/api/persons
+Content-Type: application/json
+
+{
+  "name": "Bob Johnson",
+  "email": "bob@example.com",
+  "alias": "johndoe",
+  "phone": "+1122334455"
+}
+
+### 5. CREATE - Create person with duplicate email (should fail)
+POST http://localhost:8080/api/persons
+Content-Type: application/json
+
+{
+  "name": "Bob Johnson",
+  "email": "john.doe@example.com",
+  "alias": "bobjohnson",
+  "phone": "+1122334455"
+}
+
+### 6. GET ALL - Get all persons
+GET http://localhost:8080/api/persons
+Accept: application/json
+
+### 7. GET BY ID - Get person by ID (replace 1 with actual ID from create response)
+GET http://localhost:8080/api/persons/1
+Accept: application/json
+
+### 8. GET BY ID - Try non-existent ID (should return 404)
+GET http://localhost:8080/api/persons/999
+Accept: application/json
+
+### 9. GET BY ALIAS - Get person by alias
+GET http://localhost:8080/api/persons/alias/johndoe
+Accept: application/json
+
+### 10. GET BY ALIAS - Try non-existent alias (should return 404)
+GET http://localhost:8080/api/persons/alias/nonexistent
+Accept: application/json
+
+### 11. GET BY EMAIL - Get person by email
+GET http://localhost:8080/api/persons/email/john.doe@example.com
+Accept: application/json
+
+### 12. GET BY EMAIL - Try non-existent email (should return 404)
+GET http://localhost:8080/api/persons/email/nonexistent@example.com
+Accept: application/json
+
+### 13. UPDATE - Update existing person (full update)
+PUT http://localhost:8080/api/persons/1
+Content-Type: application/json
+
+{
+  "name": "John Updated",
+  "email": "john.updated@example.com",
+  "alias": "johnupdated",
+  "phone": "+9999999999"
+}
+
+### 14. UPDATE - Update only name (partial update)
+PUT http://localhost:8080/api/persons/1
+Content-Type: application/json
+
+{
+  "name": "John Doe Jr"
+}
+
+### 15. UPDATE - Update alias to existing one (should fail)
+PUT http://localhost:8080/api/persons/1
+Content-Type: application/json
+
+{
+  "alias": "janesmith"
+}
+
+### 16. UPDATE - Update email to existing one (should fail)
+PUT http://localhost:8080/api/persons/1
+Content-Type: application/json
+
+{
+  "email": "jane.smith@example.com"
+}
+
+### 17. UPDATE - Try update non-existent person (should return 404)
+PUT http://localhost:8080/api/persons/999
+Content-Type: application/json
+
+{
+  "name": "Ghost Person"
+}
+
+### 18. COUNT - Get total number of persons
+GET http://localhost:8080/api/persons/count
+Accept: application/json
+
+### 19. DELETE - Delete person by ID
+DELETE http://localhost:8080/api/persons/1
+
+### 20. DELETE - Try delete non-existent person (should return 404)
+DELETE http://localhost:8080/api/persons/999
+
+### 21. VERIFY DELETION - Try to get deleted person (should return 404)
+GET http://localhost:8080/api/persons/1
+Accept: application/json
+
+### 22. VERIFY COUNT - Check count after deletion
+GET http://localhost:8080/api/persons/count
+Accept: application/json
+
+### 23. BULK CREATE - Create multiple persons for testing
+POST http://localhost:8080/api/persons
+Content-Type: application/json
+
+{
+  "name": "Alice Wonderland",
+  "email": "alice@example.com",
+  "alias": "alicew",
+  "phone": "+1111111111"
+}
+
+###
+
+POST http://localhost:8080/api/persons
+Content-Type: application/json
+
+{
+  "name": "Bob Builder",
+  "email": "bob@example.com",
+  "alias": "bobbuilder",
+  "phone": "+2222222222"
+}
+
+###
+
+POST http://localhost:8080/api/persons
+Content-Type: application/json
+
+{
+  "name": "Charlie Brown",
+  "email": "charlie@example.com",
+  "alias": "charlieb",
+  "phone": "+3333333333"
+}
+
+### 24. GET ALL - See all created persons
+GET http://localhost:8080/api/persons
+Accept: application/json
+
+### 25. TEST VALIDATION - Various invalid inputs
+POST http://localhost:8080/api/persons
+Content-Type: application/json
+
+{
+  "name": "A",
+  "email": "not-an-email",
+  "alias": "a1",
+  "phone": "not-a-phone"
+}
