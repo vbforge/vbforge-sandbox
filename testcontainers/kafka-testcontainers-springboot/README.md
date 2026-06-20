@@ -7,6 +7,19 @@ Demonstrating how to write real **integration tests** for Kafka producers and co
 
 A self-contained learning project demonstrating how to write **real integration tests for Kafka producers and consumers** using Testcontainers — no mocked brokers, no embedded Kafka, no running Docker Compose required. One annotation starts a real Confluent Kafka broker inside a container for the duration of the test suite.
 
+```  
+* TODO:
+* Ensure test isolation when executing the entire test suite.
+*
+* Currently, the tests pass when run individually, but shared state causes
+* issues when all tests are executed together.
+*
+* Possible solutions:
+* - Use dedicated Kafka topics for each test class.
+* - Refactor EventConsumerService to maintain test-class-specific state
+*   instead of relying on shared state.
+```
+
 ---
 
 ## Project Structure
