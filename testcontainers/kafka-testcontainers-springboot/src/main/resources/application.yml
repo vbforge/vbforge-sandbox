@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: kafka-testcontainers-springboot
+
+  kafka:
+    bootstrap-servers: localhost:9092
+
+server:
+  port: 8080
+
+kafka:
+  topics:
+    events: events-topic
+#    processed: processed-topic
+
+  consumer:
+    groupID: consumer-group-id
+
+logging:
+  level:
+    com.vbforge.org: DEBUG
+    org.apache.kafka: INFO
+    org.testcontainers: INFO
