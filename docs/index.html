@@ -32,11 +32,11 @@
 
     <section class="stats-row">
       <div class="stat-pill">
-        <span class="stat-number" id="total-count">9</span>
+        <span class="stat-number" id="total-count">10</span>
         <span class="stat-label">Total Projects</span>
       </div>
       <div class="stat-pill">
-        <span class="stat-number">4</span>
+        <span class="stat-number">5</span>
         <span class="stat-label">Categories</span>
       </div>
       <div class="stat-pill">
@@ -45,7 +45,7 @@
       </div>
       <div class="stat-pill updated-pill">
         <span class="stat-label">Last updated</span>
-        <span class="stat-number small">2026-05-29 16:53 UTC</span>
+        <span class="stat-number small">2026-06-09 22:11 UTC</span>
       </div>
     </section>
 
@@ -95,6 +95,15 @@
     <li><a href="https://github.com/vbforge/vbforge-sandbox/tree/main/kafka/kafka-producer-consumer" target="_blank">kafka-producer-consumer</a></li><li><a href="https://github.com/vbforge/vbforge-sandbox/tree/main/kafka/producer-sync" target="_blank">producer-sync</a></li>
   </ul>
 </div>
+<div class="card" data-category="testcontainers">
+  <div class="card-header">
+    <span class="card-title">testcontainers</span>
+    <span class="card-badge">1</span>
+  </div>
+  <ul class="project-list">
+    <li><a href="https://github.com/vbforge/vbforge-sandbox/tree/main/testcontainers/mysql-testcontainers-springboot" target="_blank">mysql-testcontainers-springboot</a></li>
+  </ul>
+</div>
       </div>
     </section>
 
@@ -130,10 +139,10 @@
     new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: ["concurrency","java-core","jwt","kafka"],
+        labels: ["concurrency","java-core","jwt","kafka","testcontainers"],
         datasets: [{
           label: 'Projects',
-          data: [2,2,3,2],
+          data: [2,2,3,2,1],
           backgroundColor: ['#e8ff47','#47ffe8','#ff6b47','#b847ff','#47b8ff','#ff47a0','#ffa047','#47ff8b','#ff4747','#47a0ff'],
           borderWidth: 0,
           borderRadius: 6,
