@@ -17,7 +17,7 @@
 
 ---
 
-## Total Projects: 10
+## Total Projects: 11
 
 
 ### 📁 `concurrency`
@@ -53,6 +53,7 @@
 
 | Project | Description |
 |---------|-------------|
+| [`kafka-testcontainers-springboot`](./testcontainers/kafka-testcontainers-springboot) | Demonstrating how to write real **integration tests** for Kafka producers and consumers using **Testcontainers** |
 | [`mysql-testcontainers-springboot`](./testcontainers/mysql-testcontainers-springboot) | REST API with Spring Boot, MySQL, Flyway, and Testcontainers integration testing |
 
 ---
@@ -72,4 +73,4 @@ Visit the live site: **[https://vbforge.github.io/vbforge-sandbox/](https://vbfo
 
 ---
 
-*Last updated: 2026-06-09 22:11 UTC — [source](.github/workflows/update-docs.yml)*
+*Last updated: 2026-06-20 15:42 UTC — [source](.github/workflows/update-docs.yml)*
