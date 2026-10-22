@@ -17,7 +17,7 @@
 
 ---
 
-## Total Projects: 11
+## Total Projects: 12
 
 
 ### 📁 `concurrency`
@@ -31,6 +31,7 @@
 
 | Project | Description |
 |---------|-------------|
+| [`equals-hashcode`](./java-core/equals-hashcode) | Experiments with Java equals() & hashCode(), how Java compares objects. |
 | [`generics-lab`](./java-core/generics-lab) | Experiments with Java Generics, type bounds, wildcards and practical examples. |
 | [`hello-world`](./java-core/hello-world) | Starting project!)) |
 
@@ -73,4 +74,4 @@ Visit the live site: **[https://vbforge.github.io/vbforge-sandbox/](https://vbfo
 
 ---
 
-*Last updated: 2026-06-20 16:25 UTC — [source](.github/workflows/update-docs.yml)*
+*Last updated: 2026-10-22 20:25 UTC — [source](.github/workflows/update-docs.yml)*
