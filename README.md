@@ -74,4 +74,4 @@ Visit the live site: **[https://vbforge.github.io/vbforge-sandbox/](https://vbfo
 
 ---
 
-*Last updated: 2026-10-22 20:25 UTC — [source](.github/workflows/update-docs.yml)*
+*Last updated: 2026-11-11 00:47 UTC — [source](.github/workflows/update-docs.yml)*
